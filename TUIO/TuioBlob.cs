@@ -238,7 +238,7 @@ namespace TUIO
          */
 		public void update(TuioTime ttime, float xp, float yp, float a,float w, float h, float f)
         {
-            TuioPoint lastPoint = path[path.Count - 1];
+			TuioPoint lastPoint = path.Last.Value;
             base.update(ttime, xp, yp);
 
 			width = w;

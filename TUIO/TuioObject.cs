@@ -189,7 +189,7 @@ namespace TUIO
          */
         public void update(TuioTime ttime, float xp, float yp, float a)
         {
-            TuioPoint lastPoint = path[path.Count - 1];
+			TuioPoint lastPoint = path.Last.Value;
             base.update(ttime, xp, yp);
 
             TuioTime diffTime = currentTime - lastPoint.TuioTime;

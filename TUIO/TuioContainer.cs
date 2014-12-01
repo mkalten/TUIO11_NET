@@ -63,7 +63,7 @@ namespace TUIO
          * <summary>
          * A Vector of TuioPoints containing all the previous positions of the TUIO component.</summary>
          */
-        protected List<TuioPoint> path;
+        protected LinkedList<TuioPoint> path;
 
         #region State Enumeration Values
         /**
@@ -119,8 +119,8 @@ namespace TUIO
             motion_speed = 0.0f;
             motion_accel = 0.0f;
 
-            path = new List<TuioPoint>();
-            path.Add(new TuioPoint(currentTime, xpos, ypos));
+            path = new LinkedList<TuioPoint>();
+            path.AddLast(new TuioPoint(currentTime, xpos, ypos));
             state = TUIO_ADDED;
         }
 
@@ -141,8 +141,8 @@ namespace TUIO
             y_speed = 0.0f;
             motion_speed = 0.0f;
             motion_accel = 0.0f;
-            path = new List<TuioPoint>();
-            path.Add(new TuioPoint(currentTime, xpos, ypos));
+            path = new LinkedList<TuioPoint>();
+            path.AddLast(new TuioPoint(currentTime, xpos, ypos));
             state = TUIO_ADDED;
         }
 
@@ -161,8 +161,8 @@ namespace TUIO
             y_speed = 0.0f;
             motion_speed = 0.0f;
             motion_accel = 0.0f;
-            path = new List<TuioPoint>();
-            path.Add(new TuioPoint(currentTime, xpos, ypos));
+            path = new LinkedList<TuioPoint>();
+            path.AddLast(new TuioPoint(currentTime, xpos, ypos));
             state = TUIO_ADDED;
         }
         #endregion
@@ -180,7 +180,7 @@ namespace TUIO
 	     */
         public new void update(TuioTime ttime, float xp, float yp)
         {
-            TuioPoint lastPoint = path[path.Count - 1];
+            TuioPoint lastPoint = path.Last.Value;
             base.update(ttime, xp, yp);
 
             TuioTime diffTime = currentTime - lastPoint.TuioTime;
@@ -195,10 +195,12 @@ namespace TUIO
             this.motion_speed = dist / dt;
             this.motion_accel = (motion_speed - last_motion_speed) / dt;
 
-            path.Add(new TuioPoint(currentTime, xpos, ypos));
             if (motion_accel > 0) state = TUIO_ACCELERATING;
             else if (motion_accel < 0) state = TUIO_DECELERATING;
             else state = TUIO_STOPPED;
+
+			path.AddLast(new TuioPoint(currentTime, xpos, ypos));
+			if (path.Count > 128) path.RemoveFirst();
         }
 
         /**
@@ -231,10 +233,13 @@ namespace TUIO
             y_speed = ys;
             motion_speed = (float)Math.Sqrt(x_speed * x_speed + y_speed * y_speed);
             motion_accel = ma;
-            path.Add(new TuioPoint(currentTime, xpos, ypos));
+           
             if (motion_accel > 0) state = TUIO_ACCELERATING;
             else if (motion_accel < 0) state = TUIO_DECELERATING;
             else state = TUIO_STOPPED;
+
+			path.AddLast(new TuioPoint(currentTime, xpos, ypos));
+			if (path.Count > 128) path.RemoveFirst();
         }
 
         /**
@@ -256,10 +261,13 @@ namespace TUIO
             y_speed = ys;
             motion_speed = (float)Math.Sqrt(x_speed * x_speed + y_speed * y_speed);
             motion_accel = ma;
-            path.Add(new TuioPoint(currentTime, xpos, ypos));
+            
             if (motion_accel > 0) state = TUIO_ACCELERATING;
             else if (motion_accel < 0) state = TUIO_DECELERATING;
             else state = TUIO_STOPPED;
+
+			path.AddLast(new TuioPoint(currentTime, xpos, ypos));
+			if (path.Count > 128) path.RemoveFirst();
         }
 
         /**
@@ -278,10 +286,13 @@ namespace TUIO
             y_speed = tcon.YSpeed;
             motion_speed = (float)Math.Sqrt(x_speed * x_speed + y_speed * y_speed);
             motion_accel = tcon.MotionAccel;
-            path.Add(new TuioPoint(currentTime, xpos, ypos));
+            
             if (motion_accel > 0) state = TUIO_ACCELERATING;
             else if (motion_accel < 0) state = TUIO_DECELERATING;
             else state = TUIO_STOPPED;
+
+			path.AddLast(new TuioPoint(currentTime, xpos, ypos));
+			if (path.Count > 128) path.RemoveFirst();
         }
         #endregion
 
@@ -371,7 +382,7 @@ namespace TUIO
          */
         public List<TuioPoint> Path
         {
-            get { return path; }
+			get { return new List<TuioPoint>(path); }
         }
 
         [Obsolete("This method is provided only for compatability with legacy code. Use of the property Path instead is recommended.")]
