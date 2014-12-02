@@ -61,7 +61,7 @@ namespace TUIO
         protected float motion_accel;
         /**
          * <summary>
-         * A Vector of TuioPoints containing all the previous positions of the TUIO component.</summary>
+         * A LinkedList of TuioPoints containing all the previous positions of the TUIO component.</summary>
          */
         protected LinkedList<TuioPoint> path;
 
@@ -199,8 +199,10 @@ namespace TUIO
             else if (motion_accel < 0) state = TUIO_DECELERATING;
             else state = TUIO_STOPPED;
 
-			path.AddLast(new TuioPoint(currentTime, xpos, ypos));
-			if (path.Count > 128) path.RemoveFirst();
+			lock (path) {
+				path.AddLast (new TuioPoint (currentTime, xpos, ypos));
+				if (path.Count > 128) path.RemoveFirst ();
+			}
         }
 
         /**
@@ -238,8 +240,10 @@ namespace TUIO
             else if (motion_accel < 0) state = TUIO_DECELERATING;
             else state = TUIO_STOPPED;
 
-			path.AddLast(new TuioPoint(currentTime, xpos, ypos));
-			if (path.Count > 128) path.RemoveFirst();
+			lock (path) {
+				path.AddLast (new TuioPoint (currentTime, xpos, ypos));
+				if (path.Count > 128) path.RemoveFirst ();
+			}
         }
 
         /**
@@ -266,9 +270,11 @@ namespace TUIO
             else if (motion_accel < 0) state = TUIO_DECELERATING;
             else state = TUIO_STOPPED;
 
-			path.AddLast(new TuioPoint(currentTime, xpos, ypos));
-			if (path.Count > 128) path.RemoveFirst();
-        }
+			lock (path) {
+				path.AddLast (new TuioPoint (currentTime, xpos, ypos));
+				if (path.Count > 128) path.RemoveFirst ();
+			}
+		}
 
         /**
          * <summary>
@@ -291,8 +297,10 @@ namespace TUIO
             else if (motion_accel < 0) state = TUIO_DECELERATING;
             else state = TUIO_STOPPED;
 
-			path.AddLast(new TuioPoint(currentTime, xpos, ypos));
-			if (path.Count > 128) path.RemoveFirst();
+			lock (path) {
+				path.AddLast (new TuioPoint (currentTime, xpos, ypos));
+				if (path.Count > 128) path.RemoveFirst ();
+			}
         }
         #endregion
 
@@ -382,7 +390,13 @@ namespace TUIO
          */
         public List<TuioPoint> Path
         {
-			get { return new List<TuioPoint>(path); }
+			get { 
+				List<TuioPoint> p;
+				lock (path) {
+					p = new List<TuioPoint> (path); 
+				}
+				return p;
+			}
         }
 
         [Obsolete("This method is provided only for compatability with legacy code. Use of the property Path instead is recommended.")]
