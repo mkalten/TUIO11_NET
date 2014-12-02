@@ -136,7 +136,7 @@
                      * The motion acceleration value.</summary></member>
         <member name="F:TUIO.TuioContainer.path">
                      * <summary>
-                     * A Vector of TuioPoints containing all the previous positions of the TUIO component.</summary></member>
+                     * A LinkedList of TuioPoints containing all the previous positions of the TUIO component.</summary></member>
         <member name="F:TUIO.TuioContainer.TUIO_ADDED">
                      * <summary>
                      * Defines the ADDED state.</summary></member>

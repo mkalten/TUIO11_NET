@@ -32,9 +32,6 @@ using TUIO;
 		private Dictionary<long,TuioDemoObject> objectList;
 		private Dictionary<long,TuioCursor> cursorList;
 		private Dictionary<long,TuioBlob> blobList;
-		private object cursorSync = new object();
-		private object objectSync = new object();
-		private object blobSync = new object();
 
 		public static int width, height;
 		private int window_width =  640;
@@ -129,27 +126,27 @@ using TUIO;
 		}
 
 		public void addTuioObject(TuioObject o) {
-			lock(objectSync) {
+			lock(objectList) {
 				objectList.Add(o.SessionID,new TuioDemoObject(o));
 			} if (verbose) Console.WriteLine("add obj "+o.SymbolID+" ("+o.SessionID+") "+o.X+" "+o.Y+" "+o.Angle);
 		}
 
 		public void updateTuioObject(TuioObject o) {
-			lock(objectSync) {
+			lock(objectList) {
 				objectList[o.SessionID].update(o);
 			}
 			if (verbose) Console.WriteLine("set obj "+o.SymbolID+" "+o.SessionID+" "+o.X+" "+o.Y+" "+o.Angle+" "+o.MotionSpeed+" "+o.RotationSpeed+" "+o.MotionAccel+" "+o.RotationAccel);
 		}
 
 		public void removeTuioObject(TuioObject o) {
-			lock(objectSync) {
+			lock(objectList) {
 				objectList.Remove(o.SessionID);
 			}
 			if (verbose) Console.WriteLine("del obj "+o.SymbolID+" ("+o.SessionID+")");
 		}
 
 		public void addTuioCursor(TuioCursor c) {
-			lock(cursorSync) {
+			lock(cursorList) {
 				cursorList.Add(c.SessionID,c);
 			}
 			if (verbose) Console.WriteLine("add cur "+c.CursorID + " ("+c.SessionID+") "+c.X+" "+c.Y);
@@ -160,14 +157,14 @@ using TUIO;
 		}
 
 		public void removeTuioCursor(TuioCursor c) {
-			lock(cursorSync) {
+			lock(cursorList) {
 				cursorList.Remove(c.SessionID);
 			}
 			if (verbose) Console.WriteLine("del cur "+c.CursorID + " ("+c.SessionID+")");
  		}
 
 		public void addTuioBlob(TuioBlob b) {
-			lock(blobSync) {
+			lock(blobList) {
 				blobList.Add(b.SessionID,b);
 			}
 		if (verbose) Console.WriteLine("add blb "+b.BlobID + " ("+b.SessionID+") "+b.X+" "+b.Y+" "+b.Angle+" "+b.Width+" "+b.Height+" "+b.Area);
@@ -178,7 +175,7 @@ using TUIO;
 		}
 
 		public void removeTuioBlob(TuioBlob b) {
-			lock(blobSync) {
+			lock(blobList) {
 				blobList.Remove(b.SessionID);
 			}
 			if (verbose) Console.WriteLine("del blb "+b.BlobID + " ("+b.SessionID+")");
@@ -196,7 +193,7 @@ using TUIO;
 
 			// draw the cursor path
 			if (cursorList.Count > 0) {
- 			 lock(cursorSync) {
+ 			 lock(cursorList) {
 			 foreach (TuioCursor tcur in cursorList.Values) {
 					List<TuioPoint> path = tcur.Path;
 					TuioPoint current_point = path[0];
@@ -216,7 +213,7 @@ using TUIO;
 			// draw the objects
 			if (objectList.Count > 0)
 			{
- 				lock(objectSync) {
+ 				lock(objectList) {
 					foreach (TuioDemoObject tobject in objectList.Values) {
 						tobject.paint(g);
 					}
