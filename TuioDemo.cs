@@ -231,7 +231,7 @@ using TUIO;
 					port = 3333;
 					break;
 				default:
-					Console.WriteLine("usage: java TuioDemo [port]");
+					Console.WriteLine("usage: mono TuioDemo [port]");
 					System.Environment.Exit(0);
 					break;
 			}

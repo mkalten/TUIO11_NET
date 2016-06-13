@@ -85,6 +85,6 @@ using TUIO;
 				client.connect();
 				Console.WriteLine("listening to TUIO messages at port " + client.getPort());
 
-			} else Console.WriteLine("usage: java TuioDump [port]");
+			} else Console.WriteLine("usage: mono TuioDump [port]");
 		}
 	}
