@@ -62,6 +62,7 @@
     <Compile Include="TUIO\TuioTime.cs" />
     <Compile Include="OSC.NET\OSCTimeTag.cs" />
     <Compile Include="TUIO\TuioBlob.cs" />
+    <Compile Include="TuioDemoBlob.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

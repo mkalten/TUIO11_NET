@@ -5,32 +5,35 @@
     </assembly>
     <members>
         <member name="T:OSC.NET.OSCBundle">
-            <summary>
-            OSCBundle
-            </summary>
-        </member>
+             <summary>
+             OSCBundle
+             </summary>
+            </member>
         <member name="T:OSC.NET.OSCMessage">
-            <summary>
-            OSCMessage
-            Contains an address, a comma followed by one or more type identifiers. then the data itself follows in binary encoding.
-            </summary>
-        </member>
+             <summary>
+             OSCMessage
+             
+             Contains an address, a comma followed by one or more type identifiers. then the data itself follows in binary encoding.
+             </summary>
+            </member>
         <member name="T:OSC.NET.OSCPacket">
-            <summary>
-            OSCPacket
-            </summary>
-        </member>
+             <summary>
+             OSCPacket
+             </summary>
+            </member>
         <member name="T:OSC.NET.OSCReceiver">
-            <summary>
-            OSCReceiver
-            </summary>
-        </member>
+             <summary>
+             OSCReceiver
+             </summary>
+            </member>
         <member name="T:OSC.NET.OSCTransmitter">
-            <summary>
-            OSCTransmitter
-            </summary>
-        </member>
+             <summary>
+             OSCTransmitter
+             </summary>
+            </member>
         <member name="T:TUIO.TuioClient">
+            
+            
                  * <remarks>
                  * The TuioClient class is the central TUIO protocol decoder component. It provides a simple callback infrastructure using the {@link TuioListener} interface.
             	 * In order to receive and decode TUIO messages an instance of TuioClient needs to be created. The TuioClient instance then generates TUIO events
@@ -43,154 +46,259 @@
             	 * client.start();
                  * </code>
                  * </example>
-                 *
+                 * 
                  * @author Martin Kaltenbrunner
-                 * @version 1.1,5</member>
+                 * @version 1.1,5
+                 </member>
         <member name="M:TUIO.TuioClient.#ctor">
+            
+            
                      * <summary>
-            		 * The default constructor creates a client that listens to the default TUIO port 3333</summary></member>
+            		 * The default constructor creates a client that listens to the default TUIO port 3333</summary>
+            		 </member>
         <member name="M:TUIO.TuioClient.#ctor(System.Int32)">
+            
+            
                      * <summary>
                      * This constructor creates a client that listens to the provided port</summary>
-                     * <param name="port">the listening port number</param></member>
+                     * <param name="port">the listening port number</param>
+                     </member>
         <member name="M:TUIO.TuioClient.getPort">
+            
+            
             		 * <summary>
                      * Returns the port number listening to.</summary>
-                     * <returns>the listening port number</returns></member>
+                     * <returns>the listening port number</returns>
+            		 </member>
         <member name="M:TUIO.TuioClient.connect">
+            
+            
                      * <summary>
                      * The TuioClient starts listening to TUIO messages on the configured UDP port
-                     * All reveived TUIO messages are decoded and the resulting TUIO events are broadcasted to all registered TuioListeners</summary></member>
+                     * All reveived TUIO messages are decoded and the resulting TUIO events are broadcasted to all registered TuioListeners</summary>
+                     </member>
         <member name="M:TUIO.TuioClient.disconnect">
+            
+            
                      * <summary>
-                     * The TuioClient stops listening to TUIO messages on the configured UDP port</summary></member>
+                     * The TuioClient stops listening to TUIO messages on the configured UDP port</summary>
+                     </member>
         <member name="M:TUIO.TuioClient.isConnected">
+            
+            
                      * <summary>
                      * Returns true if this TuioClient is currently connected.</summary>
-                     * <returns>true if this TuioClient is currently connected</returns></member>
+                     * <returns>true if this TuioClient is currently connected</returns>
+                     </member>
         <member name="M:TUIO.TuioClient.processMessage(OSC.NET.OSCMessage)">
+            
+            
             		 * <summary>
                      * The OSC callback method where all TUIO messages are received and decoded
             		 * and where the TUIO event callbacks are dispatched</summary>
-                     * <param name="message">the received OSC message</param></member>
+                     * <param name="message">the received OSC message</param>
+            		 </member>
         <member name="M:TUIO.TuioClient.addTuioListener(TUIO.TuioListener)">
+            
+            
             		 * <summary>
                      * Adds the provided TuioListener to the list of registered TUIO event listeners</summary>
-                     * <param name="listener">the TuioListener to add</param></member>
+                     * <param name="listener">the TuioListener to add</param>
+            		 </member>
         <member name="M:TUIO.TuioClient.removeTuioListener(TUIO.TuioListener)">
+            
+            
                      * <summary>
                      * Removes the provided TuioListener from the list of registered TUIO event listeners</summary>
-                     * <param name="listener">the TuioListener to remove</param></member>
+                     * <param name="listener">the TuioListener to remove</param>
+                     </member>
         <member name="M:TUIO.TuioClient.removeAllTuioListeners">
+            
+            
                      * <summary>
-                     * Removes all TuioListener from the list of registered TUIO event listeners</summary></member>
+                     * Removes all TuioListener from the list of registered TUIO event listeners</summary>
+                     </member>
         <member name="M:TUIO.TuioClient.getTuioObjects">
+            
+            
             		 * <summary>
                      * Returns a List of all currently active TuioObjects</summary>
-                     * <returns>a List of all currently active TuioObjects</returns></member>
+                     * <returns>a List of all currently active TuioObjects</returns>
+            		 </member>
         <member name="M:TUIO.TuioClient.getTuioCursors">
+            
+            
                      * <summary>
                      * Returns a List of all currently active TuioCursors</summary>
-                     * <returns>a List of all currently active TuioCursors</returns></member>
+                     * <returns>a List of all currently active TuioCursors</returns>
+                     </member>
         <member name="M:TUIO.TuioClient.getTuioBlobs">
+            
+            
                      * <summary>
                      * Returns a List of all currently active TuioBlobs</summary>
-                     * <returns>a List of all currently active TuioBlobs</returns></member>
+                     * <returns>a List of all currently active TuioBlobs</returns>
+                     </member>
         <member name="M:TUIO.TuioClient.getTuioObject(System.Int64)">
+            
+            
                      * <summary>
                      * Returns the TuioObject corresponding to the provided Session ID
                      * or NULL if the Session ID does not refer to an active TuioObject</summary>
-                     * <returns>an active TuioObject corresponding to the provided Session ID or NULL</returns></member>
+                     * <returns>an active TuioObject corresponding to the provided Session ID or NULL</returns>
+                     </member>
         <member name="M:TUIO.TuioClient.getTuioCursor(System.Int64)">
+            
+            
                      * <summary>
                      * Returns the TuioCursor corresponding to the provided Session ID
                      * or NULL if the Session ID does not refer to an active TuioCursor</summary>
-                     * <returns>an active TuioCursor corresponding to the provided Session ID or NULL</returns></member>
+                     * <returns>an active TuioCursor corresponding to the provided Session ID or NULL</returns>
+                     </member>
         <member name="M:TUIO.TuioClient.getTuioBlob(System.Int64)">
+            
+            
                      * <summary>
                      * Returns the TuioBlob corresponding to the provided Session ID
                      * or NULL if the Session ID does not refer to an active TuioBlob</summary>
-                     * <returns>an active TuioBlob corresponding to the provided Session ID or NULL</returns></member>
+                     * <returns>an active TuioBlob corresponding to the provided Session ID or NULL</returns>
+                     </member>
         <member name="T:TUIO.TuioContainer">
-                 * <remarks>The abstract TuioContainer class defines common attributes that apply
+            
+            
+                 * <remarks>The abstract TuioContainer class defines common attributes that apply 
                  * to both subclasses (TuioObject and TuioCursor).</remarks>
                  * <seealso cref="T:TUIO.TuioObject" />
                  * <seealso cref="T:TUIO.TuioCursor" />
                  *
                  * @author Martin Kaltenbrunner
-                 * @version 1.1.5</member>
+                 * @version 1.1.5
+                 </member>
         <member name="F:TUIO.TuioContainer.session_id">
+            
+            
                      * <summary>
-                     * The unique session ID number that is assigned to each TUIO object or cursor.</summary></member>
+                     * The unique session ID number that is assigned to each TUIO object or cursor.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.x_speed">
+            
+            
                      * <summary>
-                     * The X-axis velocity value.</summary></member>
+                     * The X-axis velocity value.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.y_speed">
+            
+            
                      * <summary>
-                     * The Y-axis velocity value.</summary></member>
+                     * The Y-axis velocity value.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.motion_speed">
+            
+            
                      * <summary>
-                     * The motion speed value.</summary></member>
+                     * The motion speed value.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.motion_accel">
+            
+            
                      * <summary>
-                     * The motion acceleration value.</summary></member>
+                     * The motion acceleration value.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.path">
+            
+            
                      * <summary>
-                     * A LinkedList of TuioPoints containing all the previous positions of the TUIO component.</summary></member>
+                     * A LinkedList of TuioPoints containing all the previous positions of the TUIO component.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.TUIO_ADDED">
+            
+            
                      * <summary>
-                     * Defines the ADDED state.</summary></member>
+                     * Defines the ADDED state.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.TUIO_ACCELERATING">
+            
+            
                      * <summary>
-                     * Defines the ACCELERATING state.</summary></member>
+                     * Defines the ACCELERATING state.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.TUIO_DECELERATING">
+            
+            
                      * <summary>
-                     * Defines the DECELERATING state.</summary></member>
+                     * Defines the DECELERATING state.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.TUIO_STOPPED">
+            
+            
                      * <summary>
-                     * Defines the STOPPED state.</summary></member>
+                     * Defines the STOPPED state.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.TUIO_REMOVED">
+            
+            
                      * <summary>
-                     * Defines the REMOVED state.</summary></member>
+                     * Defines the REMOVED state.</summary>
+                     </member>
         <member name="F:TUIO.TuioContainer.state">
+            
+            
                      * <summary>
-                     * Reflects the current state of the TuioComponent</summary></member>
+                     * Reflects the current state of the TuioComponent</summary>
+                     </member>
         <member name="M:TUIO.TuioContainer.#ctor(TUIO.TuioTime,System.Int64,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes a TuioTime argument and assigns it along with the provided
                      * Session ID, X and Y coordinate to the newly created TuioContainer.</summary>
-                     *
+                     * 
                      * <param name="ttime">the TuioTime to assign</param>
                      * <param name="si">the Session ID to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
-                     * <param name="yp">the Y coordinate to assign</param></member>
+                     * <param name="yp">the Y coordinate to assign</param>
+                     </member>
         <member name="M:TUIO.TuioContainer.#ctor(System.Int64,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes the provided Session ID, X and Y coordinate
                      * and assigs these values to the newly created TuioContainer.</summary>
-                     *
+                     * 
                      * <param name="si">the Session ID to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
-                     * <param name="yp">the Y coordinate to assign</param></member>
+                     * <param name="yp">the Y coordinate to assign</param>
+                     </member>
         <member name="M:TUIO.TuioContainer.#ctor(TUIO.TuioContainer)">
+            
+            
                      * <summary>
                      * This constructor takes the atttibutes of the provided TuioContainer
                      * and assigs these values to the newly created TuioContainer.</summary>
-                     *
-                     * <param name="tcon">the TuioContainer to assign</param></member>
+                     * 
+                     * <param name="tcon">the TuioContainer to assign</param>
+                     </member>
         <member name="M:TUIO.TuioContainer.update(TUIO.TuioTime,System.Single,System.Single)">
+            
+            
                      * <summary>
             	     * Takes a TuioTime argument and assigns it along with the provided
             	     * X and Y coordinate to the private TuioContainer attributes.
             	     * The speed and accleration values are calculated accordingly.</summary>
             	     * <param name="ttime">the TuioTime to assign</param>
             	     * <param name="xp">the X coordinate to assign</param>
-            	     * <param name="yp">the Y coordinate to assign</param></member>
+            	     * <param name="yp">the Y coordinate to assign</param>
+            	     </member>
         <member name="M:TUIO.TuioContainer.stop(TUIO.TuioTime)">
+            
+            
                      * <summary>
                      * This method is used to calculate the speed and acceleration values of
-                     * TuioContainers with unchanged positions.</summary></member>
+                     * TuioContainers with unchanged positions.</summary>
+                     </member>
         <member name="M:TUIO.TuioContainer.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Takes a TuioTime argument and assigns it along with the provided
                      * X and Y coordinate, X and Y velocity and acceleration
@@ -201,8 +309,11 @@
                      * <param name="yp">the Y coordinate to assign</param>
                      * <param name="xs">the X velocity to assign</param>
                      * <param name="ys">the Y velocity to assign</param>
-                     * <param name="ma">the acceleration to assign</param></member>
+                     * <param name="ma">the acceleration to assign</param>
+                     </member>
         <member name="M:TUIO.TuioContainer.update(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Assigns the provided X and Y coordinate, X and Y velocity and acceleration
                      * to the private TuioContainer attributes. The TuioTime time stamp remains unchanged.</summary>
@@ -211,66 +322,108 @@
                      * <param name="yp">the Y coordinate to assign</param>
                      * <param name="xs">the X velocity to assign</param>
                      * <param name="ys">the Y velocity to assign</param>
-                     * <param name="ma">the acceleration to assign</param></member>
+                     * <param name="ma">the acceleration to assign</param>
+                     </member>
         <member name="M:TUIO.TuioContainer.update(TUIO.TuioContainer)">
+            
+            
                      * <summary>
                      * Takes the atttibutes of the provided TuioContainer
                      * and assigs these values to this TuioContainer.
                      * The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
                      *
-                     * <param name="tcon">the TuioContainer to assign</param></member>
+                     * <param name="tcon">the TuioContainer to assign</param>
+                     </member>
         <member name="M:TUIO.TuioContainer.remove(TUIO.TuioTime)">
+            
+            
                     * <summary>
                     * Assigns the REMOVE state to this TuioContainer and sets
                     * its TuioTime time stamp to the provided TuioTime argument.</summary>
                     *
-                    * <param name="ttime">the TuioTime to assign</param></member>
+                    * <param name="ttime">the TuioTime to assign</param>
+                    </member>
         <member name="P:TUIO.TuioContainer.SessionID">
+            
+            
                      * <summary>
                      * Returns the Session ID of this TuioContainer.</summary>
-                     * <returns>the Session ID of this TuioContainer</returns></member>
+                     * <returns>the Session ID of this TuioContainer</returns>
+                    </member>
         <member name="P:TUIO.TuioContainer.XSpeed">
+            
+            
                      * <summary>
                      * Returns the X velocity of this TuioContainer.</summary>
-                     * <returns>the X velocity of this TuioContainer</returns></member>
+                     * <returns>the X velocity of this TuioContainer</returns>
+                     </member>
         <member name="P:TUIO.TuioContainer.YSpeed">
+            
+            
                      * <summary>
                      * Returns the Y velocity of this TuioContainer.</summary>
-                     * <returns>the Y velocity of this TuioContainer</returns></member>
+                     * <returns>the Y velocity of this TuioContainer</returns>
+                     </member>
         <member name="P:TUIO.TuioContainer.Position">
+            
+            
                      * <summary>
                      * Returns the position of this TuioContainer.</summary>
-                     * <returns>the position of this TuioContainer</returns></member>
+                     * <returns>the position of this TuioContainer</returns>
+                     </member>
         <member name="P:TUIO.TuioContainer.Path">
+            
+            
                      * <summary>
                      * Returns the path of this TuioContainer.</summary>
-                     * <returns>the path of this TuioContainer</returns></member>
+                     * <returns>the path of this TuioContainer</returns>
+                     </member>
         <member name="P:TUIO.TuioContainer.MotionSpeed">
+            
+            
                      * <summary>
                      * Returns the motion speed of this TuioContainer.</summary>
-                     * <returns>the motion speed of this TuioContainer</returns></member>
+                     * <returns>the motion speed of this TuioContainer</returns>
+                     </member>
         <member name="P:TUIO.TuioContainer.MotionAccel">
+            
+            
                      * <summary>
                      * Returns the motion acceleration of this TuioContainer.</summary>
-                     * <returns>the motion acceleration of this TuioContainer</returns></member>
+                     * <returns>the motion acceleration of this TuioContainer</returns>
+                     </member>
         <member name="P:TUIO.TuioContainer.TuioState">
+            
+            
                      * <summary>
                      * Returns the TUIO state of this TuioContainer.</summary>
-                     * <returns>the TUIO state of this TuioContainer</returns></member>
+                     * <returns>the TUIO state of this TuioContainer</returns>
+                     </member>
         <member name="P:TUIO.TuioContainer.isMoving">
+            
+            
                      * <summary>
                      * Returns true of this TuioContainer is moving.</summary>
-                     * <returns>true of this TuioContainer is moving</returns></member>
+                     * <returns>true of this TuioContainer is moving</returns>
+                     </member>
         <member name="T:TUIO.TuioCursor">
+            
+            
                  * <summary>
                  * The TuioCursor class encapsulates /tuio/2Dcur TUIO cursors.</summary>
                  *
                  * @author Martin Kaltenbrunner
-                 * @version 1.1.5</member>
+                 * @version 1.1.5
+                 </member>
         <member name="F:TUIO.TuioCursor.cursor_id">
+            
+            
                      * <summary>
-                     * The individual cursor ID number that is assigned to each TuioCursor.</summary></member>
+                     * The individual cursor ID number that is assigned to each TuioCursor.</summary>
+                     </member>
         <member name="M:TUIO.TuioCursor.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes a TuioTime argument and assigns it along with the provided
                      * Session ID, Cursor ID, X and Y coordinate to the newly created TuioCursor.</summary>
@@ -279,8 +432,11 @@
                      * <param name="si">the Session ID to assign</param>
                      * <param name="ci">the Cursor ID to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
-                     * <param name="yp">the Y coordinate to assign</param></member>
+                     * <param name="yp">the Y coordinate to assign</param>
+                     </member>
         <member name="M:TUIO.TuioCursor.#ctor(System.Int64,System.Int32,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes the provided Session ID, Cursor ID, X and Y coordinate
                      * and assigs these values to the newly created TuioCursor.</summary>
@@ -288,91 +444,148 @@
                      * <param name="si">the Session ID to assign</param>
                      * <param name="ci">the Cursor ID to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
-                     * <param name="yp">the Y coordinate to assign</param></member>
+                     * <param name="yp">the Y coordinate to assign</param>
+                     </member>
         <member name="M:TUIO.TuioCursor.#ctor(TUIO.TuioCursor)">
+            
+            
                      * <summary>
                      * This constructor takes the atttibutes of the provided TuioCursor
                      * and assigs these values to the newly created TuioCursor.</summary>
                      *
-                     * <param name="tcur">the TuioCursor to assign</param></member>
+                     * <param name="tcur">the TuioCursor to assign</param>
+                     </member>
         <member name="P:TUIO.TuioCursor.CursorID">
+            
+            
                      * <summary>
                      * Returns the Cursor ID of this TuioCursor.</summary>
-                     * <returns>the Cursor ID of this TuioCursor</returns></member>
+                     * <returns>the Cursor ID of this TuioCursor</returns>
+                     </member>
         <!--FIXME: Invalid documentation markup was found for member T:TUIO.TuioListener-->
         <member name="M:TUIO.TuioListener.addTuioObject(TUIO.TuioObject)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when a new TuioObject is added to the session.</summary>
                      *
-                     * <param name="tobj">the TuioObject reference associated to the addTuioObject event</param></member>
+                     * <param name="tobj">the TuioObject reference associated to the addTuioObject event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.updateTuioObject(TUIO.TuioObject)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when an existing TuioObject is updated during the session.</summary>
                      *
-                     * <param name="tobj">the TuioObject reference associated to the updateTuioObject event</param></member>
+                     * <param name="tobj">the TuioObject reference associated to the updateTuioObject event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.removeTuioObject(TUIO.TuioObject)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when an existing TuioObject is removed from the session.</summary>
                      *
-                     * <param name="tobj">the TuioObject reference associated to the removeTuioObject event</param></member>
+                     * <param name="tobj">the TuioObject reference associated to the removeTuioObject event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.addTuioCursor(TUIO.TuioCursor)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when a new TuioCursor is added to the session.</summary>
                      *
-                     * <param name="tcur">the TuioCursor reference associated to the addTuioCursor event</param></member>
+                     * <param name="tcur">the TuioCursor reference associated to the addTuioCursor event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.updateTuioCursor(TUIO.TuioCursor)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when an existing TuioCursor is updated during the session.</summary>
                      *
-                     * <param name="tcur">the TuioCursor reference associated to the updateTuioCursor event</param></member>
+                     * <param name="tcur">the TuioCursor reference associated to the updateTuioCursor event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.removeTuioCursor(TUIO.TuioCursor)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when an existing TuioCursor is removed from the session.</summary>
                      *
-                     * <param name="tcur">the TuioCursor reference associated to the removeTuioCursor event</param></member>
+                     * <param name="tcur">the TuioCursor reference associated to the removeTuioCursor event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.addTuioBlob(TUIO.TuioBlob)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when a new TuioBlob is added to the session.</summary>
                      *
-                     * <param name="tblb">the TuioBlob reference associated to the addTuioBlob event</param></member>
+                     * <param name="tblb">the TuioBlob reference associated to the addTuioBlob event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.updateTuioBlob(TUIO.TuioBlob)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when an existing TuioBlob is updated during the session.</summary>
                      *
-                     * <param name="tblb">the TuioBlob reference associated to the updateTuioBlob event</param></member>
+                     * <param name="tblb">the TuioBlob reference associated to the updateTuioBlob event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.removeTuioBlob(TUIO.TuioBlob)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient when an existing TuioBlob is removed from the session.</summary>
                      *
-                     * <param name="tblb">the TuioBlob reference associated to the removeTuioBlob event</param></member>
+                     * <param name="tblb">the TuioBlob reference associated to the removeTuioBlob event</param>
+                     </member>
         <member name="M:TUIO.TuioListener.refresh(TUIO.TuioTime)">
+            
+            
                      * <summary>
                      * This callback method is invoked by the TuioClient to mark the end of a received TUIO message bundle.</summary>
                      *
-                     * <param name="ftime">the TuioTime associated to the current TUIO message bundle</param></member>
+                     * <param name="ftime">the TuioTime associated to the current TUIO message bundle</param>
+                     </member>
         <member name="T:TUIO.TuioObject">
+            
+            
                  * <remarks>
                  * The TuioObject class encapsulates /tuio/2Dobj TUIO objects.
                  * </remarks>
                  *
                  * @author Martin Kaltenbrunner
-                 * @version 1.1.5</member>
+                 * @version 1.1.5
+                 </member>
         <member name="F:TUIO.TuioObject.symbol_id">
+            
+            
                      * <summary>
-                     * The individual symbol ID number that is assigned to each TuioObject.</summary></member>
+                     * The individual symbol ID number that is assigned to each TuioObject.</summary>
+                     </member>
         <member name="F:TUIO.TuioObject.angle">
+            
+            
                      * <summary>
-                     * The rotation angle value.</summary></member>
+                     * The rotation angle value.</summary>
+                     </member>
         <member name="F:TUIO.TuioObject.rotation_speed">
+            
+            
                      * <summary>
-                     * The rotation speed value.</summary></member>
+                     * The rotation speed value.</summary>
+                     </member>
         <member name="F:TUIO.TuioObject.rotation_accel">
+            
+            
                      * <summary>
-                     * The rotation acceleration value.</summary></member>
+                     * The rotation acceleration value.</summary>
+                     </member>
         <member name="F:TUIO.TuioObject.TUIO_ROTATING">
+            
+            
                      * <summary>
-                     * Defines the ROTATING state.</summary></member>
+                     * Defines the ROTATING state.</summary>
+                     </member>
         <member name="M:TUIO.TuioObject.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes a TuioTime argument and assigns it along with the provided
                      * Session ID, Symbol ID, X and Y coordinate and angle to the newly created TuioObject.</summary>
@@ -382,8 +595,11 @@
                      * <param name="sym">the Symbol ID to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
                      * <param name="yp">the Y coordinate to assign</param>
-                     * <param name="a">the angle to assign</param></member>
+                     * <param name="a">the angle to assign</param>
+                     </member>
         <member name="M:TUIO.TuioObject.#ctor(System.Int64,System.Int32,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes the provided Session ID, Symbol ID, X and Y coordinate
                      * and angle, and assigs these values to the newly created TuioObject.</summary>
@@ -392,14 +608,20 @@
                      * <param name="sym">the Symbol ID to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
                      * <param name="yp">the Y coordinate to assign</param>
-                     * <param name="a">the angle to assign</param></member>
+                     * <param name="a">the angle to assign</param>
+                     </member>
         <member name="M:TUIO.TuioObject.#ctor(TUIO.TuioObject)">
+            
+            
                      * <summary>
                      * This constructor takes the atttibutes of the provided TuioObject
                      * and assigs these values to the newly created TuioObject.</summary>
                      *
-                     * <param name="tobj">the TuioObject to assign</param></member>
+                     * <param name="tobj">the TuioObject to assign</param>
+                     </member>
         <member name="M:TUIO.TuioObject.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Takes a TuioTime argument and assigns it along with the provided
                      * X and Y coordinate, angle, X and Y velocity, motion acceleration,
@@ -413,8 +635,11 @@
                      * <param name="ys">the Y velocity to assign</param>
                      * <param name="rs">the rotation velocity to assign</param>
                      * <param name="ma">the motion acceleration to assign</param>
-                     * <param name="ra">the rotation acceleration to assign</param></member>
+                     * <param name="ra">the rotation acceleration to assign</param>
+                     </member>
         <member name="M:TUIO.TuioObject.update(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Assigns the provided X and Y coordinate, angle, X and Y velocity, motion acceleration
                      * rotation velocity and rotation acceleration to the private TuioContainer attributes.
@@ -427,8 +652,11 @@
                      * <param name="ys">the Y velocity to assign</param>
                      * <param name="rs">the rotation velocity to assign</param>
                      * <param name="ma">the motion acceleration to assign</param>
-                     * <param name="ra">the rotation acceleration to assign</param></member>
+                     * <param name="ra">the rotation acceleration to assign</param>
+                     </member>
         <member name="M:TUIO.TuioObject.update(TUIO.TuioTime,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Takes a TuioTime argument and assigns it along with the provided
                      * X and Y coordinate and angle to the private TuioObject attributes.
@@ -437,176 +665,275 @@
                      * <param name="ttime">the TuioTime to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
                      * <param name="yp">the Y coordinate to assign</param>
-                     * <param name="a">the angle coordinate to assign</param></member>
+                     * <param name="a">the angle coordinate to assign</param>
+                     </member>
         <member name="M:TUIO.TuioObject.update(TUIO.TuioObject)">
+            
+            
                      * <summary>
                      * Takes the atttibutes of the provided TuioObject
                      * and assigs these values to this TuioObject.
                      * The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
                      *
-                     * <param name="tobj">the TuioContainer to assign</param></member>
+                     * <param name="tobj">the TuioContainer to assign</param>
+                     </member>
         <member name="M:TUIO.TuioObject.stop(TUIO.TuioTime)">
+            
+            
                      * <summary>
                      * This method is used to calculate the speed and acceleration values of a
-                     * TuioObject with unchanged position and angle.</summary></member>
+                     * TuioObject with unchanged position and angle.</summary>
+                     </member>
         <member name="P:TUIO.TuioObject.SymbolID">
+            
+            
                      * <summary>
                      * Returns the symbol ID of this TuioObject.</summary>
-                     * <returns>the symbol ID of this TuioObject</returns></member>
+                     * <returns>the symbol ID of this TuioObject</returns>
+                     </member>
         <member name="P:TUIO.TuioObject.Angle">
+            
+            
                      * <summary>
                      * Returns the rotation angle of this TuioObject.</summary>
-                     * <returns>the rotation angle of this TuioObject</returns></member>
+                     * <returns>the rotation angle of this TuioObject</returns>
+                     </member>
         <member name="P:TUIO.TuioObject.AngleDegrees">
+            
+            
                      * <summary>
                      * Returns the rotation angle in degrees of this TuioObject.</summary>
-                     * <returns>the rotation angle in degrees of this TuioObject</returns></member>
+                     * <returns>the rotation angle in degrees of this TuioObject</returns>
+                     </member>
         <member name="P:TUIO.TuioObject.RotationSpeed">
+            
+            
                      * <summary>
                      * Returns the rotation speed of this TuioObject.</summary>
-                     * <returns>the rotation speed of this TuioObject</returns></member>
+                     * <returns>the rotation speed of this TuioObject</returns>
+                     </member>
         <member name="P:TUIO.TuioObject.RotationAccel">
+            
+            
                      * <summary>
                      * Returns the rotation acceleration of this TuioObject.</summary>
-                     * <returns>the rotation acceleration of this TuioObject</returns></member>
+                     * <returns>the rotation acceleration of this TuioObject</returns>
+                     </member>
         <member name="P:TUIO.TuioObject.isMoving">
+            
+            
                      * <summary>
                      * Returns true of this TuioObject is moving.</summary>
-                     * <returns>true of this TuioObject is moving</returns></member>
+                     * <returns>true of this TuioObject is moving</returns>
+                     </member>
         <member name="T:TUIO.TuioPoint">
+            
+            
                  * The TuioPoint class on the one hand is a simple container and utility class to handle TUIO positions in general,
                  * on the other hand the TuioPoint is the base class for the TuioCursor and TuioObject classes.
                  *
                  * @author Martin Kaltenbrunner
-                 * @version 1.1.5</member>
+                 * @version 1.1.5
+                 </member>
         <member name="F:TUIO.TuioPoint.xpos">
+            
+            
                      * <summary>
-                     * X coordinate, representated as a floating point value in a range of 0..1</summary></member>
+                     * X coordinate, representated as a floating point value in a range of 0..1</summary>
+                     </member>
         <member name="F:TUIO.TuioPoint.ypos">
+            
+            
                      * <summary>
-                     * Y coordinate, representated as a floating point value in a range of 0..1</summary></member>
+                     * Y coordinate, representated as a floating point value in a range of 0..1</summary>
+                     </member>
         <member name="F:TUIO.TuioPoint.currentTime">
+            
+            
                      * <summary>
-                     * The time stamp of the last update represented as TuioTime (time since session start)</summary></member>
+                     * The time stamp of the last update represented as TuioTime (time since session start)</summary>
+                     </member>
         <member name="F:TUIO.TuioPoint.startTime">
+            
+            
                      * <summary>
-                     * The creation time of this TuioPoint represented as TuioTime (time since session start)</summary></member>
+                     * The creation time of this TuioPoint represented as TuioTime (time since session start)</summary>
+                     </member>
         <member name="M:TUIO.TuioPoint.#ctor">
+            
+            
                      * <summary>
                      * The default constructor takes no arguments and sets
-                     * its coordinate attributes to zero and its time stamp to the current session time.</summary></member>
+                     * its coordinate attributes to zero and its time stamp to the current session time.</summary>
+                     </member>
         <member name="M:TUIO.TuioPoint.#ctor(System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes two floating point coordinate arguments and sets
                      * its coordinate attributes to these values and its time stamp to the current session time.</summary>
                      *
                      * <param name="xp">the X coordinate to assign</param>
-                     * <param name="yp">the Y coordinate to assign</param></member>
+                     * <param name="yp">the Y coordinate to assign</param>
+                     </member>
         <member name="M:TUIO.TuioPoint.#ctor(TUIO.TuioPoint)">
+            
+            
                      * <summary>
                      * This constructor takes a TuioPoint argument and sets its coordinate attributes
                      * to the coordinates of the provided TuioPoint and its time stamp to the current session time.</summary>
                      *
-                     * <param name="tpoint">the TuioPoint to assign</param></member>
+                     * <param name="tpoint">the TuioPoint to assign</param>
+                     </member>
         <member name="M:TUIO.TuioPoint.#ctor(TUIO.TuioTime,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes a TuioTime object and two floating point coordinate arguments and sets
                      * its coordinate attributes to these values and its time stamp to the provided TUIO time object.</summary>
                      *
                      * <param name="ttime">the TuioTime to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
-                     * <param name="yp">the Y coordinate to assign</param></member>
+                     * <param name="yp">the Y coordinate to assign</param>
+                     </member>
         <member name="M:TUIO.TuioPoint.update(TUIO.TuioPoint)">
+            
+            
                      * <summary>
                      * Takes a TuioPoint argument and updates its coordinate attributes
                      * to the coordinates of the provided TuioPoint and leaves its time stamp unchanged.</summary>
                      *
-                     * <param name="tpoint">the TuioPoint to assign</param></member>
+                     * <param name="tpoint">the TuioPoint to assign</param>
+                     </member>
         <member name="M:TUIO.TuioPoint.update(System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Takes two floating point coordinate arguments and updates its coordinate attributes
                      * to the coordinates of the provided TuioPoint and leaves its time stamp unchanged.</summary>
                      *
                      * <param name="xp">the X coordinate to assign</param>
-                     * <param name="yp">the Y coordinate to assign</param></member>
+                     * <param name="yp">the Y coordinate to assign</param>
+                     </member>
         <member name="M:TUIO.TuioPoint.update(TUIO.TuioTime,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Takes a TuioTime object and two floating point coordinate arguments and updates its coordinate attributes
                      * to the coordinates of the provided TuioPoint and its time stamp to the provided TUIO time object.</summary>
                      *
                      * <param name="ttime">the TuioTime to assign</param>
                      * <param name="xp">the X coordinate to assign</param>
-                     * <param name="yp">the Y coordinate to assign</param></member>
+                     * <param name="yp">the Y coordinate to assign</param>
+                     </member>
         <member name="P:TUIO.TuioPoint.X">
+            
+            
                      * <summary>
                      * Returns the X coordinate of this TuioPoint.</summary>
-                     * <returns>the X coordinate of this TuioPoint</returns></member>
+                     * <returns>the X coordinate of this TuioPoint</returns>
+                     </member>
         <member name="P:TUIO.TuioPoint.Y">
+            
+            
                      * <summary>
                      * Returns the Y coordinate of this TuioPoint.</summary>
-                     * <returns>the Y coordinate of this TuioPoint</returns></member>
+                     * <returns>the Y coordinate of this TuioPoint</returns>
+                     </member>
         <member name="M:TUIO.TuioPoint.getDistance(System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Returns the distance to the provided coordinates</summary>
                      *
                      * <param name="xp">the X coordinate of the distant point</param>
                      * <param name="yp">the Y coordinate of the distant point</param>
-                     * <returns>the distance to the provided coordinates</returns></member>
+                     * <returns>the distance to the provided coordinates</returns>
+                     </member>
         <member name="M:TUIO.TuioPoint.getDistance(TUIO.TuioPoint)">
+            
+            
                      * <summary>
                      * Returns the distance to the provided TuioPoint</summary>
                      *
                      * <param name="tpoint">the distant TuioPoint</param>
-                     * <returns>the distance to the provided TuioPoint</returns></member>
+                     * <returns>the distance to the provided TuioPoint</returns>
+                     </member>
         <member name="M:TUIO.TuioPoint.getAngle(System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Returns the angle to the provided coordinates</summary>
                      *
                      * <param name="xp">the X coordinate of the distant point</param>
                      * <param name="yp">the Y coordinate of the distant point</param>
-                     * <returns>the angle to the provided coordinates</returns></member>
+                     * <returns>the angle to the provided coordinates</returns>
+                     </member>
         <member name="M:TUIO.TuioPoint.getAngle(TUIO.TuioPoint)">
+            
+            
                      * <summary>
                      * Returns the angle to the provided TuioPoint</summary>
                      *
                      * <param name="tpoint">the distant TuioPoint</param>
-                     * <returns>the angle to the provided TuioPoint</returns></member>
+                     * <returns>the angle to the provided TuioPoint</returns>
+                     </member>
         <member name="M:TUIO.TuioPoint.getAngleDegrees(System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Returns the angle in degrees to the provided coordinates</summary>
                      *
                      * <param name="xp">the X coordinate of the distant point</param>
                      * <param name="yp">the Y coordinate of the distant point</param>
-                     * <returns>the angle in degrees to the provided TuioPoint</returns></member>
+                     * <returns>the angle in degrees to the provided TuioPoint</returns>
+                     </member>
         <member name="M:TUIO.TuioPoint.getAngleDegrees(TUIO.TuioPoint)">
+            
+            
                      * <summary>
                      * Returns the angle in degrees to the provided TuioPoint</summary>
                      *
                      * <param name="tpoint">the distant TuioPoint</param>
-                     * <returns>the angle in degrees to the provided TuioPoint</returns></member>
+                     * <returns>the angle in degrees to the provided TuioPoint</returns>
+                     </member>
         <member name="M:TUIO.TuioPoint.getScreenX(System.Int32)">
+            
+            
                      * <summary>
                      * Returns the X coordinate in pixels relative to the provided screen width.</summary>
                      *
                      * <param name="width">the screen width</param>
-                     * <returns>the X coordinate of this TuioPoint in pixels relative to the provided screen width</returns></member>
+                     * <returns>the X coordinate of this TuioPoint in pixels relative to the provided screen width</returns>
+                     </member>
         <member name="M:TUIO.TuioPoint.getScreenY(System.Int32)">
+            
+            
                      * <summary>
                      * Returns the Y coordinate in pixels relative to the provided screen height.</summary>
                      *
                      * <param name="height">the screen height</param>
-                     * <returns>the Y coordinate of this TuioPoint in pixels relative to the provided screen height</returns></member>
+                     * <returns>the Y coordinate of this TuioPoint in pixels relative to the provided screen height</returns>
+                     </member>
         <member name="P:TUIO.TuioPoint.TuioTime">
+            
+            
                      * <summary>
                      * Returns the time stamp of this TuioPoint as TuioTime.</summary>
                      *
-                     * <returns>the time stamp of this TuioPoint as TuioTime</returns></member>
+                     * <returns>the time stamp of this TuioPoint as TuioTime</returns>
+                     </member>
         <member name="P:TUIO.TuioPoint.StartTime">
+            
+            
                      * <summary>
                      * Returns the start time of this TuioPoint as TuioTime.</summary>
                      *
-                     * <returns>the start time of this TuioPoint as TuioTime</returns></member>
+                     * <returns>the start time of this TuioPoint as TuioTime</returns>
+                     </member>
         <member name="T:TUIO.TuioTime">
+            
+            
                  * <remarks>
                  * The TuioTime class is a simple structure that is used to reprent the time that has elapsed since the session start.
                  * The time is internally represented as seconds and fractions of microseconds which should be more than sufficient for gesture related timing requirements.
@@ -616,283 +943,376 @@
                  * </remarks>
                  *
                  * @author Martin Kaltenbrunner
-                 * @version 1.1.5</member>
+                 * @version 1.1.5
+                 </member>
         <member name="F:TUIO.TuioTime.seconds">
+            
+            
                      * <summary>
-                     * the time since session start in seconds</summary></member>
+                     * the time since session start in seconds</summary>
+                     </member>
         <member name="F:TUIO.TuioTime.micro_seconds">
+            
+            
                      * <summary>
-                     * time fraction in microseconds</summary></member>
+                     * time fraction in microseconds</summary>
+                     </member>
         <member name="F:TUIO.TuioTime.start_seconds">
+            
+            
                      * <summary>
-                     * the session start time in seconds</summary></member>
+                     * the session start time in seconds</summary>
+                     </member>
         <member name="F:TUIO.TuioTime.start_micro_seconds">
+            
+            
                      * <summary>
-                     * start time fraction in microseconds</summary></member>
+                     * start time fraction in microseconds</summary>
+                     </member>
         <member name="M:TUIO.TuioTime.#ctor">
+            
+            
                      * <summary>
                      * The default constructor takes no arguments and sets
-                     * the Seconds and Microseconds attributes of the newly created TuioTime both to zero.</summary></member>
+                     * the Seconds and Microseconds attributes of the newly created TuioTime both to zero.</summary>
+                     </member>
         <member name="M:TUIO.TuioTime.#ctor(System.Int64)">
+            
+            
                      * <summary>
                      * This constructor takes the provided time represented in total Milliseconds
                      * and assigs this value to the newly created TuioTime.</summary>
                      *
-                     * <param name="msec">the total time in Millseconds</param></member>
+                     * <param name="msec">the total time in Millseconds</param>
+                     </member>
         <member name="M:TUIO.TuioTime.#ctor(System.Int64,System.Int64)">
+            
+            
                      * <summary>
                      * This constructor takes the provided time represented in Seconds and Microseconds
                      * and assigs these value to the newly created TuioTime.</summary>
                      *
                      * <param name="sec">the total time in seconds</param>
-                     * <param name="usec">the microseconds time component</param></member>
+                     * <param name="usec">the microseconds time component</param>
+                     </member>
         <member name="M:TUIO.TuioTime.#ctor(TUIO.TuioTime)">
+            
+            
                      * <summary>
                      * This constructor takes the provided TuioTime
                      * and assigs its Seconds and Microseconds values to the newly created TuioTime.</summary>
                      *
-                     * <param name="ttime">the TuioTime used to copy</param></member>
+                     * <param name="ttime">the TuioTime used to copy</param>
+                     </member>
         <member name="M:TUIO.TuioTime.op_Addition(TUIO.TuioTime,System.Int64)">
+            
+            
                      * <summary>
                      * Sums the provided time value represented in total Microseconds to the base TuioTime.</summary>
                      *
                      * <param name="btime">the base TuioTime</param>
                      * <param name="us">the total time to add in Microseconds</param>
-                     * <returns>the sum of this TuioTime with the provided argument in microseconds</returns></member>
+                     * <returns>the sum of this TuioTime with the provided argument in microseconds</returns>
+                    </member>
         <member name="M:TUIO.TuioTime.op_Addition(TUIO.TuioTime,TUIO.TuioTime)">
+            
+            
                      * <summary>
                      * Sums the provided TuioTime to the base TuioTime.</summary>
                      *
                      * <param name="btime">the base TuioTime</param>
                      * <param name="ttime">the TuioTime to add</param>
-                     * <returns>the sum of this TuioTime with the provided TuioTime argument</returns></member>
+                     * <returns>the sum of this TuioTime with the provided TuioTime argument</returns>
+                     </member>
         <member name="M:TUIO.TuioTime.op_Subtraction(TUIO.TuioTime,System.Int64)">
+            
+            
                      * <summary>
                      * Subtracts the provided time represented in Microseconds from the base TuioTime.</summary>
                      *
                      * <param name="btime">the base TuioTime</param>
                      * <param name="us">the total time to subtract in Microseconds</param>
-                     * <returns>the subtraction result of this TuioTime minus the provided time in Microseconds</returns></member>
+                     * <returns>the subtraction result of this TuioTime minus the provided time in Microseconds</returns>
+                     </member>
         <member name="M:TUIO.TuioTime.op_Subtraction(TUIO.TuioTime,TUIO.TuioTime)">
+            
+            
                      * <summary>
                      * Subtracts the provided TuioTime from the private Seconds and Microseconds attributes.</summary>
                      *
                      * <param name="btime">the base TuioTime</param>
                      * <param name="ttime">the TuioTime to subtract</param>
-                     * <returns>the subtraction result of this TuioTime minus the provided TuioTime</returns></member>
+                     * <returns>the subtraction result of this TuioTime minus the provided TuioTime</returns>
+                     </member>
         <member name="M:TUIO.TuioTime.Equals(TUIO.TuioTime)">
+            
+            
                      * <summary>
                      * Takes a TuioTime argument and compares the provided TuioTime to the private Seconds and Microseconds attributes.</summary>
                      *
                      * <param name="ttime">the TuioTime to compare</param>
-                     * <returns>true if the two TuioTime have equal Seconds and Microseconds attributes</returns></member>
+                     * <returns>true if the two TuioTime have equal Seconds and Microseconds attributes</returns>
+                     </member>
         <member name="M:TUIO.TuioTime.reset">
+            
+            
                      * <summary>
-                     * Resets the seconds and micro_seconds attributes to zero.</summary></member>
+                     * Resets the seconds and micro_seconds attributes to zero.</summary>
+                     </member>
         <member name="P:TUIO.TuioTime.Seconds">
+            
+            
                      * <summary>
                      * Returns the TuioTime Seconds component.</summary>
-                     * <returns>the TuioTime Seconds component</returns></member>
+                     * <returns>the TuioTime Seconds component</returns>
+                     </member>
         <member name="P:TUIO.TuioTime.Microseconds">
+            
+            
                      * <summary>
                      * Returns the TuioTime Microseconds component.</summary>
-                     * <returns>the TuioTime Microseconds component</returns></member>
+                     * <returns>the TuioTime Microseconds component</returns>
+                     </member>
         <member name="P:TUIO.TuioTime.TotalMilliseconds">
+            
+            
                      * <summary>
                      * Returns the total TuioTime in Milliseconds.</summary>
-                     * <returns>the total TuioTime in Milliseconds</returns></member>
+                     * <returns>the total TuioTime in Milliseconds</returns>
+                     </member>
         <member name="M:TUIO.TuioTime.initSession">
+            
+            
                      * <summary>
-                     * This static method globally resets the TUIO session time.</summary></member>
+                     * This static method globally resets the TUIO session time.</summary>
+                     </member>
         <member name="P:TUIO.TuioTime.SessionTime">
+            
+            
                      * <summary>
                      * Returns the present TuioTime representing the time since session start.</summary>
-                     * <returns>the present TuioTime representing the time since session start</returns></member>
+                     * <returns>the present TuioTime representing the time since session start</returns>
+                     </member>
         <member name="P:TUIO.TuioTime.StartTime">
+            
+            
                      * <summary>
                      * Returns the absolut TuioTime representing the session start.</summary>
-                     * <returns>the absolut TuioTime representing the session start</returns></member>
+                     * <returns>the absolut TuioTime representing the session start</returns>
+                     </member>
         <member name="P:TUIO.TuioTime.SystemTime">
+            
+            
                      * <summary>
                      * Returns the absolut TuioTime representing the current system time.</summary>
-                     * <returns>the absolut TuioTime representing the current system time</returns></member>
+                     * <returns>the absolut TuioTime representing the current system time</returns>
+                     </member>
         <member name="F:OSC.NET.OscTimeTag.Epoch">
-            <summary>
-            Osc Time Epoch (January 1, 1900 00:00:00).
-            </summary>
-        </member>
+             <summary>
+             Osc Time Epoch (January 1, 1900 00:00:00).
+             </summary>
+            </member>
         <member name="F:OSC.NET.OscTimeTag.MinValue">
-            <summary>
-            Minimum Osc Time Tag.
-            </summary>
-        </member>
+             <summary>
+             Minimum Osc Time Tag.
+             </summary>
+            </member>
         <member name="P:OSC.NET.OscTimeTag.SecondsSinceEpoch">
-            <summary>
-            Gets the first 32 bits of the Osc Time Tag. Specifies the number of seconds since the epoch.
-            </summary>
-        </member>
+             <summary>
+             Gets the first 32 bits of the Osc Time Tag. Specifies the number of seconds since the epoch.
+             </summary>
+            </member>
         <member name="P:OSC.NET.OscTimeTag.FractionalSecond">
-            <summary>
-            Gets the last 32 bits of the Osc Time Tag. Specifies the fractional part of a second.
-            </summary>
-        </member>
+             <summary>
+             Gets the last 32 bits of the Osc Time Tag. Specifies the fractional part of a second.
+             </summary>
+            </member>
         <member name="P:OSC.NET.OscTimeTag.DateTime">
-            <summary>
-            Gets the Osc Time Tag as a DateTime value.
-            </summary>
-        </member>
+             <summary>
+             Gets the Osc Time Tag as a DateTime value.
+             </summary>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:OSC.NET.OscTimeTag" /> class.
-            </summary>
-            <remarks>Defaults the Osc Time Tag value to DateTime.Now.</remarks>
-        </member>
+             <summary>
+             Initializes a new instance of the <see cref="T:OSC.NET.OscTimeTag" /> class.
+             </summary>
+             <remarks>Defaults the Osc Time Tag value to DateTime.Now.</remarks>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.#ctor(System.DateTime)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OSC.NET.OscTimeTag" /> class.
-            </summary>
-            <param name="timeStamp">The time stamp to use to set the Osc Time Tag.</param>
-        </member>
+             <summary>
+             Initializes a new instance of the <see cref="T:OSC.NET.OscTimeTag" /> class.
+             </summary>
+             <param name="timeStamp">The time stamp to use to set the Osc Time Tag.</param>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.#ctor(System.Byte[])">
-            <summary>
-            Initializes a new instance of the <see cref="T:OSC.NET.OscTimeTag" /> class.
-            </summary>
-            <param name="data">The time stamp to use to set the Osc Time Tag.</param>
-        </member>
+             <summary>
+             Initializes a new instance of the <see cref="T:OSC.NET.OscTimeTag" /> class.
+             </summary>
+             <param name="data">The time stamp to use to set the Osc Time Tag.</param>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.ToByteArray">
-            <summary>
-            Convert the Osc Time Tag to a byte array.
-            </summary>
-            <returns>A byte array containing the Osc Time Tag.</returns>
-        </member>
+             <summary>
+             Convert the Osc Time Tag to a byte array.
+             </summary>
+             <returns>A byte array containing the Osc Time Tag.</returns>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.Equals(OSC.NET.OscTimeTag,OSC.NET.OscTimeTag)">
-            <summary>
-            Determines whether two specified instances of OscTimeTag are equal.
-            </summary>
-            <param name="lhs">An OscTimeTag.</param>
-            <param name="rhs">An OscTimeTag.</param>
-            <returns>true if lhs and rhs represent the same time tag; otherwise, false.</returns>
-        </member>
+             <summary>
+             Determines whether two specified instances of OscTimeTag are equal.
+             </summary>
+             <param name="lhs">An OscTimeTag.</param>
+             <param name="rhs">An OscTimeTag.</param>
+             <returns>true if lhs and rhs represent the same time tag; otherwise, false.</returns>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.op_Equality(OSC.NET.OscTimeTag,OSC.NET.OscTimeTag)">
-            <summary>
-            Determines whether two specified instances of OscTimeTag are equal.
-            </summary>
-            <param name="lhs">An OscTimeTag.</param>
-            <param name="rhs">An OscTimeTag.</param>
-            <returns>true if lhs and rhs represent the same time tag; otherwise, false.</returns>
-        </member>
+             <summary>
+             Determines whether two specified instances of OscTimeTag are equal.
+             </summary>
+             <param name="lhs">An OscTimeTag.</param>
+             <param name="rhs">An OscTimeTag.</param>
+             <returns>true if lhs and rhs represent the same time tag; otherwise, false.</returns>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.op_Inequality(OSC.NET.OscTimeTag,OSC.NET.OscTimeTag)">
-            <summary>
-            Determines whether two specified instances of OscTimeTag are not equal.
-            </summary>
-            <param name="lhs">An OscTimeTag.</param>
-            <param name="rhs">An OscTimeTag.</param>
-            <returns>true if lhs and rhs do not represent the same time tag; otherwise, false.</returns>
-        </member>
+             <summary>
+             Determines whether two specified instances of OscTimeTag are not equal.
+             </summary>
+             <param name="lhs">An OscTimeTag.</param>
+             <param name="rhs">An OscTimeTag.</param>
+             <returns>true if lhs and rhs do not represent the same time tag; otherwise, false.</returns>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.op_LessThan(OSC.NET.OscTimeTag,OSC.NET.OscTimeTag)">
-            <summary>
-            Determines whether one specified <see cref="T:OSC.NET.OscTimeTag" /> is less than another specified <see cref="T:OSC.NET.OscTimeTag" />.
-            </summary>
-            <param name="lhs">An OscTimeTag.</param>
-            <param name="rhs">An OscTimeTag.</param>
-            <returns>true if lhs is less than rhs; otherwise, false.</returns>
-        </member>
+             <summary>
+             Determines whether one specified <see cref="T:OSC.NET.OscTimeTag" /> is less than another specified <see cref="T:OSC.NET.OscTimeTag" />.
+             </summary>
+             <param name="lhs">An OscTimeTag.</param>
+             <param name="rhs">An OscTimeTag.</param>
+             <returns>true if lhs is less than rhs; otherwise, false.</returns>        
+            </member>
         <member name="M:OSC.NET.OscTimeTag.op_LessThanOrEqual(OSC.NET.OscTimeTag,OSC.NET.OscTimeTag)">
-            <summary>
-            Determines whether one specified <see cref="T:OSC.NET.OscTimeTag" /> is less than or equal to another specified <see cref="T:OSC.NET.OscTimeTag" />.
-            </summary>
-            <param name="lhs">An OscTimeTag.</param>
-            <param name="rhs">An OscTimeTag.</param>
-            <returns>true if lhs is less than or equal to rhs; otherwise, false.</returns>
-        </member>
+             <summary>
+             Determines whether one specified <see cref="T:OSC.NET.OscTimeTag" /> is less than or equal to another specified <see cref="T:OSC.NET.OscTimeTag" />.
+             </summary>
+             <param name="lhs">An OscTimeTag.</param>
+             <param name="rhs">An OscTimeTag.</param>
+             <returns>true if lhs is less than or equal to rhs; otherwise, false.</returns>        
+            </member>
         <member name="M:OSC.NET.OscTimeTag.op_GreaterThan(OSC.NET.OscTimeTag,OSC.NET.OscTimeTag)">
-            <summary>
-            Determines whether one specified <see cref="T:OSC.NET.OscTimeTag" /> is greater than another specified <see cref="T:OSC.NET.OscTimeTag" />.
-            </summary>
-            <param name="lhs">An OscTimeTag.</param>
-            <param name="rhs">An OscTimeTag.</param>
-            <returns>true if lhs is greater than rhs; otherwise, false.</returns>
-        </member>
+             <summary>
+             Determines whether one specified <see cref="T:OSC.NET.OscTimeTag" /> is greater than another specified <see cref="T:OSC.NET.OscTimeTag" />.
+             </summary>
+             <param name="lhs">An OscTimeTag.</param>
+             <param name="rhs">An OscTimeTag.</param>
+             <returns>true if lhs is greater than rhs; otherwise, false.</returns>        
+            </member>
         <member name="M:OSC.NET.OscTimeTag.op_GreaterThanOrEqual(OSC.NET.OscTimeTag,OSC.NET.OscTimeTag)">
-            <summary>
-            Determines whether one specified <see cref="T:OSC.NET.OscTimeTag" /> is greater than or equal to another specified <see cref="T:OSC.NET.OscTimeTag" />.
-            </summary>
-            <param name="lhs">An OscTimeTag.</param>
-            <param name="rhs">An OscTimeTag.</param>
-            <returns>true if lhs is greater than or equal to rhs; otherwise, false.</returns>
-        </member>
+             <summary>
+             Determines whether one specified <see cref="T:OSC.NET.OscTimeTag" /> is greater than or equal to another specified <see cref="T:OSC.NET.OscTimeTag" />.
+             </summary>
+             <param name="lhs">An OscTimeTag.</param>
+             <param name="rhs">An OscTimeTag.</param>
+             <returns>true if lhs is greater than or equal to rhs; otherwise, false.</returns>        
+            </member>
         <member name="M:OSC.NET.OscTimeTag.IsValidTime(System.DateTime)">
-            <summary>
-            Validates the time stamp for use in an Osc Time Tag.
-            </summary>
-            <param name="timeStamp">The time stamp to validate.</param>
-            <returns>True if the time stamp is a valid Osc Time Tag; false, otherwise.</returns>
-            <remarks>Time stamps must be greater-than-or-equal to <see cref="F:OSC.NET.OscTimeTag.MinValue" />.</remarks>
-        </member>
+             <summary>
+             Validates the time stamp for use in an Osc Time Tag.
+             </summary>
+             <param name="timeStamp">The time stamp to validate.</param>
+             <returns>True if the time stamp is a valid Osc Time Tag; false, otherwise.</returns>
+             <remarks>Time stamps must be greater-than-or-equal to <see cref="F:OSC.NET.OscTimeTag.MinValue" />.</remarks>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.Set(System.DateTime)">
-            <summary>
-            Sets the value of the Osc Time Tag.
-            </summary>
-            <param name="timeStamp">The time stamp to use to set the Osc Time Tag.</param>
-        </member>
+             <summary>
+             Sets the value of the Osc Time Tag.
+             </summary>
+             <param name="timeStamp">The time stamp to use to set the Osc Time Tag.</param>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.Equals(System.Object)">
-            <summary>
-            Returns a value indicating whether this instance is equal to a specified object.
-            </summary>
-            <param name="value">An object to compare to this instance.</param>
-            <returns>true if value is an instance of System.DateTime and equals the value of this instance; otherwise, false.</returns>
-        </member>
+             <summary>
+             Returns a value indicating whether this instance is equal to a specified object.
+             </summary>
+             <param name="value">An object to compare to this instance.</param>
+             <returns>true if value is an instance of System.DateTime and equals the value of this instance; otherwise, false.</returns>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.Equals(OSC.NET.OscTimeTag)">
-            <summary>
-            Returns a value indicating whether this instance is equal to a specified OscTimeTag instance.
-            </summary>
-            <param name="value">An object to compare to this instance.</param>
-            <returns>true if value is an instance of System.DateTime and equals the value of this instance; otherwise, false.</returns>
-        </member>
+             <summary>
+             Returns a value indicating whether this instance is equal to a specified OscTimeTag instance.
+             </summary>
+             <param name="value">An object to compare to this instance.</param>
+             <returns>true if value is an instance of System.DateTime and equals the value of this instance; otherwise, false.</returns>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.GetHashCode">
-            <summary>
-            Returns the hash code for this instance.
-            </summary>
-            <returns>A 32-bit signed integer hash code.</returns>
-        </member>
+             <summary>
+             Returns the hash code for this instance.
+             </summary>
+             <returns>A 32-bit signed integer hash code.</returns>
+            </member>
         <member name="M:OSC.NET.OscTimeTag.ToString">
-            <summary>
-            Converts the value of the current <see cref="T:OSC.NET.OscTimeTag" /> object to its equivalent string representation.
-            </summary>
-            <returns>A string representation of the value of the current <see cref="T:OSC.NET.OscTimeTag" /> object.</returns>
-        </member>
+             <summary>
+             Converts the value of the current <see cref="T:OSC.NET.OscTimeTag" /> object to its equivalent string representation.
+             </summary>
+             <returns>A string representation of the value of the current <see cref="T:OSC.NET.OscTimeTag" /> object.</returns>
+            </member>
         <member name="T:TUIO.TuioBlob">
+            
+            
                  * <remarks>
                  * The TuioBlob class encapsulates /tuio/2Dblb TUIO objects.
                  * </remarks>
                  *
                  * @author Martin Kaltenbrunner
-                 * @version 1.1.5</member>
+                 * @version 1.1.5
+                 </member>
         <member name="F:TUIO.TuioBlob.blob_id">
+            
+            
                      * <summary>
-                     * The individual symbol ID number that is assigned to each TuioBlob.</summary></member>
+                     * The individual symbol ID number that is assigned to each TuioBlob.</summary>
+                     </member>
         <member name="F:TUIO.TuioBlob.angle">
+            
+            
                      * <summary>
-                     * The rotation angle value.</summary></member>
+                     * The rotation angle value.</summary>
+                     </member>
         <member name="F:TUIO.TuioBlob.width">
+            
+            
                      * <summary>
-                     * The blob width value.</summary></member>
+                     * The blob width value.</summary>
+                     </member>
         <member name="F:TUIO.TuioBlob.height">
+            
+            
                      * <summary>
-                     * The blob height value.</summary></member>
+                     * The blob height value.</summary>
+                     </member>
         <member name="F:TUIO.TuioBlob.area">
+            
+            
                      * <summary>
-                     * The blob area value.</summary></member>
+                     * The blob area value.</summary>
+                     </member>
         <member name="F:TUIO.TuioBlob.rotation_speed">
+            
+            
                      * <summary>
-                     * The rotation speed value.</summary></member>
+                     * The rotation speed value.</summary>
+                     </member>
         <member name="F:TUIO.TuioBlob.rotation_accel">
+            
+            
                      * <summary>
-                     * The rotation acceleration value.</summary></member>
+                     * The rotation acceleration value.</summary>
+                     </member>
         <member name="F:TUIO.TuioBlob.TUIO_ROTATING">
+            
+            
                      * <summary>
-                     * Defines the ROTATING state.</summary></member>
+                     * Defines the ROTATING state.</summary>
+                     </member>
         <member name="M:TUIO.TuioBlob.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes a TuioTime argument and assigns it along with the provided
                      * Session ID, Symbol ID, X and Y coordinate and angle to the newly created TuioBlob.</summary>
@@ -905,8 +1325,11 @@
                      * <param name="a">the angle to assign</param>
                      * <param name="w">the width to assign</param>
                      * <param name="h">the height to assign</param>
-                     * <param name="f">the area to assign</param></member>
+                     * <param name="f">the area to assign</param>
+                     </member>
         <member name="M:TUIO.TuioBlob.#ctor(System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * This constructor takes the provided Session ID, Symbol ID, X and Y coordinate
                      * and angle, and assigs these values to the newly created TuioBlob.</summary>
@@ -918,14 +1341,20 @@
                      * <param name="a">the angle to assign</param>
                      * <param name="w">the width to assign</param>
                      * <param name="h">the height to assign</param>
-                     * <param name="f">the area to assign</param></member>
+                     * <param name="f">the area to assign</param>
+                     </member>
         <member name="M:TUIO.TuioBlob.#ctor(TUIO.TuioBlob)">
+            
+            
                      * <summary>
                      * This constructor takes the atttibutes of the provided TuioBlob
                      * and assigs these values to the newly created TuioBlob.</summary>
                      *
-                     * <param name="tblb">the TuioBlob to assign</param></member>
+                     * <param name="tblb">the TuioBlob to assign</param>
+                     </member>
         <member name="M:TUIO.TuioBlob.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Takes a TuioTime argument and assigns it along with the provided
                      * X and Y coordinate, angle, X and Y velocity, motion acceleration,
@@ -942,8 +1371,11 @@
                      * <param name="ys">the Y velocity to assign</param>
                      * <param name="rs">the rotation velocity to assign</param>
                      * <param name="ma">the motion acceleration to assign</param>
-                     * <param name="ra">the rotation acceleration to assign</param></member>
+                     * <param name="ra">the rotation acceleration to assign</param>
+                     </member>
         <member name="M:TUIO.TuioBlob.update(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Assigns the provided X and Y coordinate, angle, X and Y velocity, motion acceleration
                      * rotation velocity and rotation acceleration to the private TuioContainer attributes.
@@ -959,8 +1391,11 @@
                      * <param name="ys">the Y velocity to assign</param>
                      * <param name="rs">the rotation velocity to assign</param>
                      * <param name="ma">the motion acceleration to assign</param>
-                     * <param name="ra">the rotation acceleration to assign</param></member>
+                     * <param name="ra">the rotation acceleration to assign</param>
+                     </member>
         <member name="M:TUIO.TuioBlob.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            
+            
                      * <summary>
                      * Takes a TuioTime argument and assigns it along with the provided
                      * X and Y coordinate and angle to the private TuioBlob attributes.
@@ -972,53 +1407,87 @@
                      * <param name="a">the angle coordinate to assign</param>
                      * <param name="w">the width to assign</param>
                      * <param name="h">the height to assign</param>
-                     * <param name="f">the area to assign</param></member>
+                     * <param name="f">the area to assign</param>
+                     </member>
         <member name="M:TUIO.TuioBlob.update(TUIO.TuioBlob)">
+            
+            
                      * <summary>
                      * Takes the atttibutes of the provided TuioBlob
                      * and assigs these values to this TuioBlob.
                      * The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
                      *
-                     * <param name="tblb">the TuioContainer to assign</param></member>
+                     * <param name="tblb">the TuioContainer to assign</param>
+                     </member>
         <member name="M:TUIO.TuioBlob.stop(TUIO.TuioTime)">
+            
+            
                      * <summary>
                      * This method is used to calculate the speed and acceleration values of a
-                     * TuioBlob with unchanged position and angle.</summary></member>
+                     * TuioBlob with unchanged position and angle.</summary>
+                     </member>
         <member name="P:TUIO.TuioBlob.BlobID">
+            
+            
                      * <summary>
                      * Returns the symbol ID of this TuioBlob.</summary>
-                     * <returns>the symbol ID of this TuioBlob</returns></member>
+                     * <returns>the symbol ID of this TuioBlob</returns>
+                     </member>
         <member name="P:TUIO.TuioBlob.Width">
+            
+            
                      * <summary>
                      * Returns the width of this TuioBlob.</summary>
-                     * <returns>the width of this TuioBlob</returns></member>
+                     * <returns>the width of this TuioBlob</returns>
+                     </member>
         <member name="P:TUIO.TuioBlob.Height">
+            
+            
                      * <summary>
                      * Returns the height of this TuioBlob.</summary>
-                     * <returns>the heigth of this TuioBlob</returns></member>
+                     * <returns>the heigth of this TuioBlob</returns>
+                     </member>
         <member name="P:TUIO.TuioBlob.Area">
+            
+            
                      * <summary>
                      * Returns the area of this TuioBlob.</summary>
-                     * <returns>the area of this TuioBlob</returns></member>
+                     * <returns>the area of this TuioBlob</returns>
+                     </member>
         <member name="P:TUIO.TuioBlob.Angle">
+            
+            
                      * <summary>
                      * Returns the rotation angle of this TuioBlob.</summary>
-                     * <returns>the rotation angle of this TuioBlob</returns></member>
+                     * <returns>the rotation angle of this TuioBlob</returns>
+                     </member>
         <member name="P:TUIO.TuioBlob.AngleDegrees">
+            
+            
                      * <summary>
                      * Returns the rotation angle in degrees of this TuioBlob.</summary>
-                     * <returns>the rotation angle in degrees of this TuioBlob</returns></member>
+                     * <returns>the rotation angle in degrees of this TuioBlob</returns>
+                     </member>
         <member name="P:TUIO.TuioBlob.RotationSpeed">
+            
+            
                      * <summary>
                      * Returns the rotation speed of this TuioBlob.</summary>
-                     * <returns>the rotation speed of this TuioBlob</returns></member>
+                     * <returns>the rotation speed of this TuioBlob</returns>
+                     </member>
         <member name="P:TUIO.TuioBlob.RotationAccel">
+            
+            
                      * <summary>
                      * Returns the rotation acceleration of this TuioBlob.</summary>
-                     * <returns>the rotation acceleration of this TuioBlob</returns></member>
+                     * <returns>the rotation acceleration of this TuioBlob</returns>
+                     </member>
         <member name="P:TUIO.TuioBlob.isMoving">
+            
+            
                      * <summary>
                      * Returns true of this TuioBlob is moving.</summary>
-                     * <returns>true of this TuioBlob is moving</returns></member>
+                     * <returns>true of this TuioBlob is moving</returns>
+                     </member>
     </members>
 </doc>

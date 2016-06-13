@@ -1,6 +1,6 @@
 /*
 	TUIO C# Demo - part of the reacTIVision project
-	Copyright (c) 2005-2014 Martin Kaltenbrunner <martin@tuio.org>
+	Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -44,15 +44,15 @@ using TUIO;
 		private bool fullscreen;
 		private bool verbose;
 
-		SolidBrush blackBrush = new SolidBrush(Color.Black);
-		SolidBrush whiteBrush = new SolidBrush(Color.White);
-
-		SolidBrush grayBrush = new SolidBrush(Color.Gray);
-		Pen fingerPen = new Pen(new SolidBrush(Color.Blue), 1);
+		SolidBrush fntBrush = new SolidBrush(Color.Black);
+		SolidBrush bgrBrush = new SolidBrush(Color.FromArgb(0,0,64));
+		SolidBrush curBrush = new SolidBrush(Color.FromArgb(192, 0, 192));
+		Pen curPen = new Pen(new SolidBrush(Color.Blue), 1);
+		Font font = new Font("Arial", 10.0f);
 
 		public TuioDemo(int port) {
 		
-			verbose = true;
+			verbose = false;
 			fullscreen = false;
 			width = window_width;
 			height = window_height;
@@ -189,7 +189,7 @@ using TUIO;
 		{
 			// Getting the graphics object
 			Graphics g = pevent.Graphics;
-			g.FillRectangle(whiteBrush, new Rectangle(0,0,width,height));
+			g.FillRectangle(bgrBrush, new Rectangle(0,0,width,height));
 
 			// draw the cursor path
 			if (cursorList.Count > 0) {
@@ -200,12 +200,11 @@ using TUIO;
 
 					for (int i = 0; i < path.Count; i++) {
 						TuioPoint next_point = path[i];
-						g.DrawLine(fingerPen, current_point.getScreenX(width), current_point.getScreenY(height), next_point.getScreenX(width), next_point.getScreenY(height));
+						g.DrawLine(curPen, current_point.getScreenX(width), current_point.getScreenY(height), next_point.getScreenX(width), next_point.getScreenY(height));
 						current_point = next_point;
 					}
-					g.FillEllipse(grayBrush, current_point.getScreenX(width) - height / 100, current_point.getScreenY(height) - height / 100, height / 50, height / 50);
-					Font font = new Font("Arial", 10.0f);
-					g.DrawString(tcur.CursorID + "", font, blackBrush, new PointF(tcur.getScreenX(width) - 10, tcur.getScreenY(height) - 10));
+					g.FillEllipse(curBrush, current_point.getScreenX(width) - height / 100, current_point.getScreenY(height) - height / 100, height / 50, height / 50);
+					g.DrawString(tcur.CursorID + "", font, fntBrush, new PointF(tcur.getScreenX(width) - 10, tcur.getScreenY(height) - 10));
 				}
 			}
 		 }

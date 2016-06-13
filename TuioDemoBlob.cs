@@ -23,17 +23,17 @@ using System;
 using System.Drawing;
 using TUIO;
 
-	public class TuioDemoObject : TuioObject
+	public class TuioDemoBlob : TuioBlob
 	{
 
-		SolidBrush objBrush = new SolidBrush(Color.FromArgb(64,0,0));
+		SolidBrush blbBrush = new SolidBrush(Color.FromArgb(64,64,64));
 		SolidBrush fntBrush = new SolidBrush(Color.White);
 		Font font = new Font("Arial", 10.0f);
 
-	public TuioDemoObject (long s_id, int f_id, float xpos, float ypos, float angle) : base(s_id,f_id,xpos,ypos,angle) {
+	public TuioDemoBlob (long s_id, int b_id, float xpos, float ypos, float angle, float width, float height, float area) : base(s_id,b_id,xpos,ypos,angle,width,height,area) {
 		}
 
-		public TuioDemoObject (TuioObject o) : base(o) {
+		public TuioDemoBlob (TuioBlob tblb) : base(tblb) {
 		}
 
 		public void paint(Graphics g) {
@@ -46,13 +46,13 @@ using TUIO;
 			g.RotateTransform((float)(angle/Math.PI*180.0f));
 			g.TranslateTransform(-x,-y);
 
-			g.FillRectangle(objBrush, new Rectangle(x-size/2,y-size/2,size,size));
+			g.FillRectangle(blbBrush, new Rectangle(x-size/2,y-size/2,size,size));
 
 			g.TranslateTransform(x,y);
 			g.RotateTransform(-1*(float)(angle/Math.PI*180.0f));
 			g.TranslateTransform(-x,-y);
 
-			g.DrawString(symbol_id+"",font, fntBrush, new PointF(x-10,y-10));
+			g.DrawString(blob_id+"",font, fntBrush, new PointF(x,y));
 		}
 
 	}

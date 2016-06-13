@@ -1,6 +1,6 @@
 TUIO C# LIBRARY AND EXAMPLES
 ----------------------------
-Copyright (c) 2005-2014 Martin Kaltenbrunner <martin@tuio.org>
+Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
 This software is part of reacTIVision, an open source fiducial
 tracking and multi-touch framework based on computer vision. 
 http://reactivision.sourceforge.net/
