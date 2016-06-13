@@ -31,7 +31,7 @@ using TUIO;
 		private TuioClient client;
 		private Dictionary<long,TuioDemoObject> objectList;
 		private Dictionary<long,TuioCursor> cursorList;
-		private Dictionary<long,TuioBlob> blobList;
+		private Dictionary<long,TuioDemoBlob> blobList;
 
 		public static int width, height;
 		private int window_width =  640;
@@ -70,6 +70,7 @@ using TUIO;
 
 			objectList = new Dictionary<long,TuioDemoObject>(128);
 			cursorList = new Dictionary<long,TuioCursor>(128);
+			blobList   = new Dictionary<long,TuioDemoBlob>(128);
 			
 			client = new TuioClient(port);
 			client.addTuioListener(this);
@@ -165,13 +166,16 @@ using TUIO;
 
 		public void addTuioBlob(TuioBlob b) {
 			lock(blobList) {
-				blobList.Add(b.SessionID,b);
+				blobList.Add(b.SessionID,new TuioDemoBlob(b));
 			}
-		if (verbose) Console.WriteLine("add blb "+b.BlobID + " ("+b.SessionID+") "+b.X+" "+b.Y+" "+b.Angle+" "+b.Width+" "+b.Height+" "+b.Area);
+			if (verbose) Console.WriteLine("add blb "+b.BlobID + " ("+b.SessionID+") "+b.X+" "+b.Y+" "+b.Angle+" "+b.Width+" "+b.Height+" "+b.Area);
 		}
 
 		public void updateTuioBlob(TuioBlob b) {
-		if (verbose) Console.WriteLine("set blb "+b.BlobID + " ("+b.SessionID+") "+b.X+" "+b.Y+" "+b.Angle+" "+b.Width+" "+b.Height+" "+b.Area+" "+b.MotionSpeed+" "+b.RotationSpeed+" "+b.MotionAccel+" "+b.RotationAccel);
+			lock(blobList) {
+				blobList[b.SessionID].update(b);
+			}
+			if (verbose) Console.WriteLine("set blb "+b.BlobID + " ("+b.SessionID+") "+b.X+" "+b.Y+" "+b.Angle+" "+b.Width+" "+b.Height+" "+b.Area+" "+b.MotionSpeed+" "+b.RotationSpeed+" "+b.MotionAccel+" "+b.RotationAccel);
 		}
 
 		public void removeTuioBlob(TuioBlob b) {
@@ -210,11 +214,19 @@ using TUIO;
 		 }
 
 			// draw the objects
-			if (objectList.Count > 0)
-			{
+			if (objectList.Count > 0) {
  				lock(objectList) {
 					foreach (TuioDemoObject tobject in objectList.Values) {
 						tobject.paint(g);
+					}
+				}
+			}
+
+			// draw the blobs
+			if (blobList.Count > 0) {
+				lock(blobList) {
+					foreach (TuioDemoBlob tblob in blobList.Values) {
+						tblob.paint(g);
 					}
 				}
 			}

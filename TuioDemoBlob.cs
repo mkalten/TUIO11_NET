@@ -40,13 +40,16 @@ using TUIO;
 
 			int x = (int)(xpos*TuioDemo.width);
 			int y = (int)(ypos*TuioDemo.height);
-			int size = TuioDemo.height/10;
+			float w = width*TuioDemo.width;
+			float h = height*TuioDemo.height;
 
 			g.TranslateTransform(x,y);
 			g.RotateTransform((float)(angle/Math.PI*180.0f));
 			g.TranslateTransform(-x,-y);
 
-			g.FillRectangle(blbBrush, new Rectangle(x-size/2,y-size/2,size,size));
+			//g.FillRectangle(blbBrush, new Rectangle(x-size/2,y-size/2,size,size));
+			g.FillEllipse(blbBrush, x-w/2, y-h/2, w, h);
+
 
 			g.TranslateTransform(x,y);
 			g.RotateTransform(-1*(float)(angle/Math.PI*180.0f));
