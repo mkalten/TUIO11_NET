@@ -29,9 +29,9 @@ using TUIO;
 	public class TuioDemo : Form , TuioListener
 	{
 		private TuioClient client;
-		private Dictionary<long,TuioDemoObject> objectList;
+		private Dictionary<long,TuioObject> objectList;
 		private Dictionary<long,TuioCursor> cursorList;
-		private Dictionary<long,TuioDemoBlob> blobList;
+		private Dictionary<long,TuioBlob> blobList;
 
 		public static int width, height;
 		private int window_width =  640;
@@ -44,11 +44,13 @@ using TUIO;
 		private bool fullscreen;
 		private bool verbose;
 
-		SolidBrush fntBrush = new SolidBrush(Color.Black);
+		Font font = new Font("Arial", 10.0f);
+		SolidBrush fntBrush = new SolidBrush(Color.White);
 		SolidBrush bgrBrush = new SolidBrush(Color.FromArgb(0,0,64));
 		SolidBrush curBrush = new SolidBrush(Color.FromArgb(192, 0, 192));
+		SolidBrush objBrush = new SolidBrush(Color.FromArgb(64, 0, 0));
+		SolidBrush blbBrush = new SolidBrush(Color.FromArgb(64, 64, 64));
 		Pen curPen = new Pen(new SolidBrush(Color.Blue), 1);
-		Font font = new Font("Arial", 10.0f);
 
 		public TuioDemo(int port) {
 		
@@ -62,15 +64,15 @@ using TUIO;
 			this.Text = "TuioDemo";
 			
 			this.Closing+=new CancelEventHandler(Form_Closing);
-			this.KeyDown +=new KeyEventHandler(Form_KeyDown);
+			this.KeyDown+=new KeyEventHandler(Form_KeyDown);
 
 			this.SetStyle( ControlStyles.AllPaintingInWmPaint |
 							ControlStyles.UserPaint |
 							ControlStyles.DoubleBuffer, true);
 
-			objectList = new Dictionary<long,TuioDemoObject>(128);
+			objectList = new Dictionary<long,TuioObject>(128);
 			cursorList = new Dictionary<long,TuioCursor>(128);
-			blobList   = new Dictionary<long,TuioDemoBlob>(128);
+			blobList   = new Dictionary<long,TuioBlob>(128);
 			
 			client = new TuioClient(port);
 			client.addTuioListener(this);
@@ -128,14 +130,12 @@ using TUIO;
 
 		public void addTuioObject(TuioObject o) {
 			lock(objectList) {
-				objectList.Add(o.SessionID,new TuioDemoObject(o));
+				objectList.Add(o.SessionID,o);
 			} if (verbose) Console.WriteLine("add obj "+o.SymbolID+" ("+o.SessionID+") "+o.X+" "+o.Y+" "+o.Angle);
 		}
 
 		public void updateTuioObject(TuioObject o) {
-			lock(objectList) {
-				objectList[o.SessionID].update(o);
-			}
+
 			if (verbose) Console.WriteLine("set obj "+o.SymbolID+" "+o.SessionID+" "+o.X+" "+o.Y+" "+o.Angle+" "+o.MotionSpeed+" "+o.RotationSpeed+" "+o.MotionAccel+" "+o.RotationAccel);
 		}
 
@@ -166,15 +166,13 @@ using TUIO;
 
 		public void addTuioBlob(TuioBlob b) {
 			lock(blobList) {
-				blobList.Add(b.SessionID,new TuioDemoBlob(b));
+				blobList.Add(b.SessionID,b);
 			}
 			if (verbose) Console.WriteLine("add blb "+b.BlobID + " ("+b.SessionID+") "+b.X+" "+b.Y+" "+b.Angle+" "+b.Width+" "+b.Height+" "+b.Area);
 		}
 
 		public void updateTuioBlob(TuioBlob b) {
-			lock(blobList) {
-				blobList[b.SessionID].update(b);
-			}
+		
 			if (verbose) Console.WriteLine("set blb "+b.BlobID + " ("+b.SessionID+") "+b.X+" "+b.Y+" "+b.Angle+" "+b.Width+" "+b.Height+" "+b.Area+" "+b.MotionSpeed+" "+b.RotationSpeed+" "+b.MotionAccel+" "+b.RotationAccel);
 		}
 
@@ -216,8 +214,22 @@ using TUIO;
 			// draw the objects
 			if (objectList.Count > 0) {
  				lock(objectList) {
-					foreach (TuioDemoObject tobject in objectList.Values) {
-						tobject.paint(g);
+					foreach (TuioObject tobj in objectList.Values) {
+						int ox = tobj.getScreenX(width);
+						int oy = tobj.getScreenY(height);
+						int size = height / 10;
+
+						g.TranslateTransform(ox, oy);
+						g.RotateTransform((float)(tobj.Angle / Math.PI * 180.0f));
+						g.TranslateTransform(-ox, -oy);
+
+						g.FillRectangle(objBrush, new Rectangle(ox - size / 2, oy - size / 2, size, size));
+
+						g.TranslateTransform(ox, oy);
+						g.RotateTransform(-1 * (float)(tobj.Angle / Math.PI * 180.0f));
+						g.TranslateTransform(-ox, -oy);
+
+						g.DrawString(tobj.SymbolID + "", font, fntBrush, new PointF(ox - 10, oy - 10));
 					}
 				}
 			}
@@ -225,8 +237,23 @@ using TUIO;
 			// draw the blobs
 			if (blobList.Count > 0) {
 				lock(blobList) {
-					foreach (TuioDemoBlob tblob in blobList.Values) {
-						tblob.paint(g);
+					foreach (TuioBlob tblb in blobList.Values) {
+						int bx = tblb.getScreenX(width);
+						int by = tblb.getScreenY(height);
+						float bw = tblb.Width*width;
+						float bh = tblb.Height*height;
+
+						g.TranslateTransform(bx, by);
+						g.RotateTransform((float)(tblb.Angle / Math.PI * 180.0f));
+						g.TranslateTransform(-bx, -by);
+
+						g.FillEllipse(blbBrush, bx - bw / 2, by - bh / 2, bw, bh);
+
+						g.TranslateTransform(bx, by);
+						g.RotateTransform(-1 * (float)(tblb.Angle / Math.PI * 180.0f));
+						g.TranslateTransform(-bx, -by);
+						
+						g.DrawString(tblb.BlobID + "", font, fntBrush, new PointF(bx, by));
 					}
 				}
 			}
