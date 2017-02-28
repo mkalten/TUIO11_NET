@@ -6,7 +6,7 @@
 // All rights reserved.
 //
 // Changes and improvements:
-// Copyright (c) 2006-2014 Martin Kaltenbrunner <martin@tuio.org>
+// Copyright (c) 2006-2017 Martin Kaltenbrunner <martin@tuio.org>
 // As included with http://reactivision.sourceforge.net/
 //
 // Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -61,7 +61,7 @@ namespace OSC.NET
 		{
             try
             {
-                IPEndPoint ip = null;
+				IPEndPoint ip = new IPEndPoint(IPAddress.Any, 0);
                 byte[] bytes = this.udpClient.Receive(ref ip);
                 if (bytes != null && bytes.Length > 0)
                     return OSCPacket.Unpack(bytes);
