@@ -212,10 +212,10 @@ namespace TUIO
          * <param name="yp">the Y coordinate of the distant point</param>
          * <returns>the distance to the provided coordinates</returns>
          */
-        public float getDistance(float x, float y)
+        public float getDistance(float xp, float yp)
         {
-            float dx = xpos - x;
-            float dy = ypos - y;
+            float dx = xpos - xp;
+            float dy = ypos - yp;
             return (float)Math.Sqrt(dx * dx + dy * dy);
         }
 

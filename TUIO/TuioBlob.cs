@@ -119,7 +119,7 @@ namespace TUIO
          * and angle, and assigs these values to the newly created TuioBlob.</summary>
          *
          * <param name="si">the Session ID to assign</param>
-         * <param name="sym">the Symbol ID to assign</param>
+         * <param name="bi">the Blob ID to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
          * <param name="a">the angle to assign</param>

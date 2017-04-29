@@ -28,9 +28,6 @@
 using System;
 using System.Collections;
 
-/// <summary>
-/// VVVV OSC Utilities 
-/// </summary>
 namespace OSC.NET
 {
 	/// <summary>
