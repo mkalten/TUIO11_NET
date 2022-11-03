@@ -51,6 +51,11 @@ namespace TUIO
         protected float y_speed;
         /**
          * <summary>
+         * The Z-axis velocity value.</summary>
+         */
+        protected float z_speed;
+        /**
+         * <summary>
          * The motion speed value.</summary>
          */
         protected float motion_speed;
@@ -68,29 +73,36 @@ namespace TUIO
         #region State Enumeration Values
         /**
          * <summary>
+         * Defines the REMOVED state.</summary>
+         */
+        public const int TUIO_IDLE = 0;
+        /**
+         * <summary>
          * Defines the ADDED state.</summary>
          */
-        public const int TUIO_ADDED = 0;
+        public const int TUIO_ADDED = 1;
         /**
          * <summary>
          * Defines the ACCELERATING state.</summary>
          */
-        public const int TUIO_ACCELERATING = 1;
+        public const int TUIO_ACCELERATING = 2;
         /**
          * <summary>
          * Defines the DECELERATING state.</summary>
          */
-        public const int TUIO_DECELERATING = 2;
+        public const int TUIO_DECELERATING = 3;
+
         /**
          * <summary>
          * Defines the STOPPED state.</summary>
          */
-        public const int TUIO_STOPPED = 3;
+        public const int TUIO_STOPPED = 5;
         /**
          * <summary>
          * Defines the REMOVED state.</summary>
          */
-        public const int TUIO_REMOVED = 4;
+        public const int TUIO_REMOVED = 6;
+
         #endregion
         /**
          * <summary>
@@ -109,18 +121,20 @@ namespace TUIO
          * <param name="si">the Session ID to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          */
-        public TuioContainer(TuioTime ttime, long si, float xp, float yp)
-            : base(ttime, xp, yp)
+        public TuioContainer(TuioTime ttime, long si, float xp, float yp, float zp)
+            : base(ttime, xp, yp,zp)
         {
             session_id = si;
             x_speed = 0.0f;
             y_speed = 0.0f;
+            z_speed = 0.0f;
             motion_speed = 0.0f;
             motion_accel = 0.0f;
 
             path = new LinkedList<TuioPoint>();
-            path.AddLast(new TuioPoint(currentTime, xpos, ypos));
+            path.AddLast(new TuioPoint(currentTime, xpos, ypos,zpos));
             state = TUIO_ADDED;
         }
 
@@ -132,17 +146,19 @@ namespace TUIO
          * <param name="si">the Session ID to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          */
-        public TuioContainer(long si, float xp, float yp)
-            : base(xp, yp)
+        public TuioContainer(long si, float xp, float yp, float zp)
+            : base(xp, yp, zp)
         {
             session_id = si;
             x_speed = 0.0f;
             y_speed = 0.0f;
+            z_speed = 0.0f;
             motion_speed = 0.0f;
             motion_accel = 0.0f;
             path = new LinkedList<TuioPoint>();
-            path.AddLast(new TuioPoint(currentTime, xpos, ypos));
+            path.AddLast(new TuioPoint(currentTime, xpos, ypos,zpos));
             state = TUIO_ADDED;
         }
 
@@ -162,7 +178,7 @@ namespace TUIO
             motion_speed = 0.0f;
             motion_accel = 0.0f;
             path = new LinkedList<TuioPoint>();
-            path.AddLast(new TuioPoint(currentTime, xpos, ypos));
+            path.AddLast(new TuioPoint(currentTime, xpos, ypos,zpos));
             state = TUIO_ADDED;
         }
         #endregion
@@ -177,21 +193,24 @@ namespace TUIO
 	     * <param name="ttime">the TuioTime to assign</param>
 	     * <param name="xp">the X coordinate to assign</param>
 	     * <param name="yp">the Y coordinate to assign</param>
+	     * <param name="zp">the Z coordinate to assign</param>
 	     */
-        public new void update(TuioTime ttime, float xp, float yp)
+        public new void update(TuioTime ttime, float xp, float yp, float zp)
         {
             TuioPoint lastPoint = path.Last.Value;
-            base.update(ttime, xp, yp);
+            base.update(ttime, xp, yp, zp);
 
             TuioTime diffTime = currentTime - lastPoint.TuioTime;
             float dt = diffTime.TotalMilliseconds / 1000.0f;
             float dx = this.xpos - lastPoint.X;
             float dy = this.ypos - lastPoint.Y;
-            float dist = (float)Math.Sqrt(dx * dx + dy * dy);
+            float dz = this.zpos - lastPoint.Z;
+            float dist = (float)Math.Sqrt(dx * dx + dy * dy + dz * dz);
             float last_motion_speed = this.motion_speed;
 
             this.x_speed = dx / dt;
             this.y_speed = dy / dt;
+            this.z_speed = dz / dt;
             this.motion_speed = dist / dt;
             this.motion_accel = (motion_speed - last_motion_speed) / dt;
 
@@ -200,7 +219,7 @@ namespace TUIO
             else state = TUIO_STOPPED;
 
 			lock (path) {
-				path.AddLast (new TuioPoint (currentTime, xpos, ypos));
+				path.AddLast (new TuioPoint (currentTime, xpos, ypos,zpos));
 				if (path.Count > 128) path.RemoveFirst ();
 			}
         }
@@ -212,7 +231,7 @@ namespace TUIO
          */
         public void stop(TuioTime ttime)
         {
-            update(ttime, this.xpos, this.ypos);
+            update(ttime, this.xpos, this.ypos, this.zpos);
         }
 
         /**
@@ -224,16 +243,19 @@ namespace TUIO
          * <param name="ttime">the TuioTime to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Y coordinate to assign</param>
          * <param name="xs">the X velocity to assign</param>
          * <param name="ys">the Y velocity to assign</param>
+         * <param name="zs">the Y velocity to assign</param>
          * <param name="ma">the acceleration to assign</param>
          */
-        public void update(TuioTime ttime, float xp, float yp, float xs, float ys, float ma)
+        public void update(TuioTime ttime, float xp, float yp, float zp, float xs, float ys, float zs, float ma)
         {
-            base.update(ttime, xp, yp);
+            base.update(ttime, xp, yp,zp);
             x_speed = xs;
             y_speed = ys;
-            motion_speed = (float)Math.Sqrt(x_speed * x_speed + y_speed * y_speed);
+            z_speed = zs;
+            motion_speed = (float)Math.Sqrt(x_speed * x_speed + y_speed * y_speed + z_speed * z_speed);
             motion_accel = ma;
            
             if (motion_accel > 0) state = TUIO_ACCELERATING;
@@ -241,7 +263,7 @@ namespace TUIO
             else state = TUIO_STOPPED;
 
 			lock (path) {
-				path.AddLast (new TuioPoint (currentTime, xpos, ypos));
+				path.AddLast (new TuioPoint (currentTime, xpos, ypos,zpos));
 				if (path.Count > 128) path.RemoveFirst ();
 			}
         }
@@ -253,17 +275,20 @@ namespace TUIO
          *
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          * <param name="xs">the X velocity to assign</param>
          * <param name="ys">the Y velocity to assign</param>
+         * <param name="zs">the Z velocity to assign</param>
          * <param name="ma">the acceleration to assign</param>
          */
-        public void update(float xp, float yp, float xs, float ys, float ma)
+        public void update(float xp, float yp, float zp, float xs, float ys, float zs, float ma)
         {
-            base.update(xp, yp);
+            base.update(xp, yp,zp);
 
             x_speed = xs;
             y_speed = ys;
-            motion_speed = (float)Math.Sqrt(x_speed * x_speed + y_speed * y_speed);
+            z_speed = zs;
+            motion_speed = (float)Math.Sqrt(x_speed * x_speed + y_speed * y_speed + z_speed * z_speed);
             motion_accel = ma;
             
             if (motion_accel > 0) state = TUIO_ACCELERATING;
@@ -271,7 +296,7 @@ namespace TUIO
             else state = TUIO_STOPPED;
 
 			lock (path) {
-				path.AddLast (new TuioPoint (currentTime, xpos, ypos));
+				path.AddLast (new TuioPoint (currentTime, xpos, ypos,zpos));
 				if (path.Count > 128) path.RemoveFirst ();
 			}
 		}
@@ -286,19 +311,18 @@ namespace TUIO
          */
         public void update(TuioContainer tcon)
         {
-            base.update(tcon.X, tcon.Y);
+            base.update(tcon.X, tcon.Y, tcon.Z);
 
             x_speed = tcon.XSpeed;
             y_speed = tcon.YSpeed;
-            motion_speed = (float)Math.Sqrt(x_speed * x_speed + y_speed * y_speed);
+            z_speed = tcon.ZSpeed;
+            motion_speed = tcon.MotionSpeed;
             motion_accel = tcon.MotionAccel;
             
-            if (motion_accel > 0) state = TUIO_ACCELERATING;
-            else if (motion_accel < 0) state = TUIO_DECELERATING;
-            else state = TUIO_STOPPED;
+            state = tcon.state;
 
 			lock (path) {
-				path.AddLast (new TuioPoint (currentTime, xpos, ypos));
+				path.AddLast (new TuioPoint (currentTime, xpos, ypos,zpos));
 				if (path.Count > 128) path.RemoveFirst ();
 			}
         }
@@ -369,12 +393,28 @@ namespace TUIO
 
         /**
          * <summary>
+         * Returns the Z velocity of this TuioContainer.</summary>
+         * <returns>the Z velocity of this TuioContainer</returns>
+         */
+        public float ZSpeed
+        {
+            get { return y_speed; }
+        }
+
+        [Obsolete("This method is provided only for compatability with legacy code. Use of the property ZSpeed instead is recommended.")]
+        public float getZSpeed()
+        {
+            return ZSpeed;
+        }
+
+        /**
+         * <summary>
          * Returns the position of this TuioContainer.</summary>
          * <returns>the position of this TuioContainer</returns>
          */
         public TuioPoint Position
         {
-            get { return new TuioPoint(xpos, ypos); }
+            get { return new TuioPoint(xpos, ypos,zpos); }
         }
 
         [Obsolete("This method is provided only for compatability with legacy code. Use of the property Position instead is recommended.")]

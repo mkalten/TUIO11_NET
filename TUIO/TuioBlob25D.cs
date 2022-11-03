@@ -24,17 +24,17 @@ namespace TUIO
 
     /**
      * <remarks>
-     * The TuioBlob class encapsulates /tuio/2Dblb TUIO objects.
+     * The TuioBlob25D class encapsulates /tuio/25Dblb TUIO objects.
      * </remarks>
      *
-     * @author Martin Kaltenbrunner
-     * @version 1.1.6
+     * @author  Nicolas Bremard
+     * @version 1.1.7
      */
-    public class TuioBlob : TuioContainer
+    public class TuioBlob25D : TuioContainer
     {
         /**
          * <summary>
-         * The individual symbol ID number that is assigned to each TuioBlob.</summary>
+         * The individual symbol ID number that is assigned to each TuioBlob25D.</summary>
          */
         protected int blob_id;
 
@@ -94,20 +94,21 @@ namespace TUIO
         /**
          * <summary>
          * This constructor takes a TuioTime argument and assigns it along with the provided
-         * Session ID, Symbol ID, X and Y coordinate and angle to the newly created TuioBlob.</summary>
+         * Session ID, Symbol ID, X and Y coordinate and angle to the newly created TuioBlob25D.</summary>
          *
          * <param name="ttime">the TuioTime to assign</param>
          * <param name="si">the Session ID to assign</param>
          * <param name="bi">the Blob ID to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          * <param name="a">the angle to assign</param>
          * <param name="w">the width to assign</param>
          * <param name="h">the height to assign</param>
          * <param name="f">the area to assign</param>
          */
-        public TuioBlob(TuioTime ttime, long si, int bi, float xp, float yp, float a, float w, float h, float f)
-            : base(ttime, si, xp, yp, 0)
+        public TuioBlob25D(TuioTime ttime, long si, int bi, float xp, float yp, float zp, float a, float w, float h, float f)
+            : base(ttime, si, xp, yp, zp)
         {
             blob_id = bi;
             angle = a;
@@ -121,19 +122,20 @@ namespace TUIO
         /**
          * <summary>
          * This constructor takes the provided Session ID, Symbol ID, X and Y coordinate
-         * and angle, and assigs these values to the newly created TuioBlob.</summary>
+         * and angle, and assigs these values to the newly created TuioBlob25D.</summary>
          *
          * <param name="si">the Session ID to assign</param>
          * <param name="bi">the Blob ID to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          * <param name="a">the angle to assign</param>
          * <param name="w">the width to assign</param>
          * <param name="h">the height to assign</param>
          * <param name="f">the area to assign</param>
          */
-		public TuioBlob(long si, int bi, float xp, float yp, float a, float w, float h, float f)
-            : base(si, xp, yp, 0)
+        public TuioBlob25D(long si, int bi, float xp, float yp, float zp, float a, float w, float h, float f)
+            : base(si, xp, yp, zp)
         {
             blob_id = bi;
             angle = a;
@@ -146,12 +148,12 @@ namespace TUIO
 
         /**
          * <summary>
-         * This constructor takes the atttibutes of the provided TuioBlob
-         * and assigs these values to the newly created TuioBlob.</summary>
+         * This constructor takes the atttibutes of the provided TuioBlob25D
+         * and assigs these values to the newly created TuioBlob25D.</summary>
          *
-         * <param name="tblb">the TuioBlob to assign</param>
+         * <param name="tblb">the TuioBlob25D to assign</param>
          */
-        public TuioBlob(TuioBlob tblb)
+        public TuioBlob25D(TuioBlob25D tblb)
             : base(tblb)
         {
             blob_id = tblb.BlobID;
@@ -170,11 +172,12 @@ namespace TUIO
          * <summary>
          * Takes a TuioTime argument and assigns it along with the provided
          * X and Y coordinate, angle, X and Y velocity, motion acceleration,
-         * rotation speed and rotation acceleration to the private TuioBlob attributes.</summary>
+         * rotation speed and rotation acceleration to the private TuioBlob25D attributes.</summary>
          *
          * <param name="ttime">the TuioTime to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          * <param name="a">the angle coordinate to assign</param>
          * <param name="w">the width to assign</param>
          * <param name="h">the height to assign</param>
@@ -185,9 +188,9 @@ namespace TUIO
          * <param name="ma">the motion acceleration to assign</param>
          * <param name="ra">the rotation acceleration to assign</param>
          */
-		public void update(TuioTime ttime, float xp, float yp, float a, float w, float h, float f, float xs, float ys, float rs, float ma, float ra)
+        public void update(TuioTime ttime, float xp, float yp, float zp, float a, float w, float h, float f, float xs, float ys, float zs, float rs, float ma, float ra)
         {
-            base.update(ttime, xp, yp, 0, xs, ys, 0, ma);
+            base.update(ttime, xp, yp, zp, xs, ys, zs, ma);
             angle = a;
             float dw = width - w;
             float dh = height - h;
@@ -208,6 +211,7 @@ namespace TUIO
          *
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          * <param name="a">the angle coordinate to assign</param>
          * <param name="w">the width to assign</param>
          * <param name="h">the height to assign</param>
@@ -218,9 +222,9 @@ namespace TUIO
          * <param name="ma">the motion acceleration to assign</param>
          * <param name="ra">the rotation acceleration to assign</param>
          */
-		public void update(float xp, float yp, float a, float w, float h, float f, float xs, float ys, float rs, float ma, float ra)
+        public void update(float xp, float yp, float zp, float a, float w, float h, float f, float xs, float ys, float zs, float rs, float ma, float ra)
         {
-            base.update(xp, yp, 0, xs, ys, 0, ma);
+            base.update(xp, yp, zp, xs, ys, zs, ma);
             angle = a;
             float dw = width - w;
             float dh = height - h;
@@ -236,21 +240,22 @@ namespace TUIO
         /**
          * <summary>
          * Takes a TuioTime argument and assigns it along with the provided
-         * X and Y coordinate and angle to the private TuioBlob attributes.
+         * X and Y coordinate and angle to the private TuioBlob25D attributes.
          * The speed and accleration values are calculated accordingly.</summary>
          *
          * <param name="ttime">the TuioTime to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          * <param name="a">the angle coordinate to assign</param>
          * <param name="w">the width to assign</param>
          * <param name="h">the height to assign</param>
          * <param name="f">the area to assign</param>
          */
-		public void update(TuioTime ttime, float xp, float yp, float a,float w, float h, float f)
+        public new void update(TuioTime ttime, float xp, float yp, float zp, float a,float w, float h, float f)
         {
 			TuioPoint lastPoint = path.Last.Value;
-            base.update(ttime, xp, yp, 0);
+            base.update(ttime, xp, yp, zp);
 
             float dw = width - w;
             float dh = height - h;
@@ -271,18 +276,18 @@ namespace TUIO
             rotation_speed = da / dt;
             rotation_accel = (rotation_speed - last_rotation_speed) / dt;
             if ((rotation_accel != 0) && (state != TUIO_STOPPED)) state = TUIO_ROTATING;
-            if (dw != 0 || dh != 0) state = TUIO_RESIZED;
+            if (dw != 0 || dh != 0 ) state = TUIO_RESIZED;
         }
 
         /**
          * <summary>
-         * Takes the atttibutes of the provided TuioBlob
-         * and assigs these values to this TuioBlob.
+         * Takes the atttibutes of the provided TuioBlob25D
+         * and assigs these values to this TuioBlob25D.
          * The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
          *
          * <param name="tblb">the TuioContainer to assign</param>
          */
-        public void update(TuioBlob tblb)
+        public void update(TuioBlob25D tblb)
         {
             base.update(tblb);
             angle = tblb.Angle;
@@ -297,11 +302,11 @@ namespace TUIO
         /**
          * <summary>
          * This method is used to calculate the speed and acceleration values of a
-         * TuioBlob with unchanged position and angle.</summary>
+         * TuioBlob25D with unchanged position and angle.</summary>
          */
         public new void stop(TuioTime ttime)
         {
-			update(ttime, this.xpos, this.ypos,  this.angle, this.width, this.height, this.area);
+            update(ttime, this.xpos, this.ypos, this.zpos,  this.angle, this.width, this.height, this.area);
         }
         #endregion
 
@@ -309,8 +314,8 @@ namespace TUIO
 
         /**
          * <summary>
-         * Returns the symbol ID of this TuioBlob.</summary>
-         * <returns>the symbol ID of this TuioBlob</returns>
+         * Returns the symbol ID of this TuioBlob25D.</summary>
+         * <returns>the symbol ID of this TuioBlob25D</returns>
          */
         public int BlobID
         {
@@ -325,8 +330,8 @@ namespace TUIO
 	
 		/**
          * <summary>
-         * Returns the width of this TuioBlob.</summary>
-         * <returns>the width of this TuioBlob</returns>
+         * Returns the width of this TuioBlob25D.</summary>
+         * <returns>the width of this TuioBlob25D</returns>
          */
 		public float Width
 		{
@@ -341,8 +346,8 @@ namespace TUIO
 
 		/**
          * <summary>
-         * Returns the height of this TuioBlob.</summary>
-         * <returns>the heigth of this TuioBlob</returns>
+         * Returns the height of this TuioBlob25D.</summary>
+         * <returns>the heigth of this TuioBlob25D</returns>
          */
 		public float Height
 		{
@@ -357,8 +362,8 @@ namespace TUIO
 
 		/**
          * <summary>
-         * Returns the area of this TuioBlob.</summary>
-         * <returns>the area of this TuioBlob</returns>
+         * Returns the area of this TuioBlob25D.</summary>
+         * <returns>the area of this TuioBlob25D</returns>
          */
 		public float Area
 		{
@@ -373,8 +378,8 @@ namespace TUIO
 
         /**
          * <summary>
-         * Returns the rotation angle of this TuioBlob.</summary>
-         * <returns>the rotation angle of this TuioBlob</returns>
+         * Returns the rotation angle of this TuioBlob25D.</summary>
+         * <returns>the rotation angle of this TuioBlob25D</returns>
          */
         public float Angle
         {
@@ -389,8 +394,8 @@ namespace TUIO
 		
         /**
          * <summary>
-         * Returns the rotation angle in degrees of this TuioBlob.</summary>
-         * <returns>the rotation angle in degrees of this TuioBlob</returns>
+         * Returns the rotation angle in degrees of this TuioBlob25D.</summary>
+         * <returns>the rotation angle in degrees of this TuioBlob25D</returns>
          */
         public float AngleDegrees
         {
@@ -405,8 +410,8 @@ namespace TUIO
 		
         /**
          * <summary>
-         * Returns the rotation speed of this TuioBlob.</summary>
-         * <returns>the rotation speed of this TuioBlob</returns>
+         * Returns the rotation speed of this TuioBlob25D.</summary>
+         * <returns>the rotation speed of this TuioBlob25D</returns>
          */
         public float RotationSpeed
         {
@@ -421,8 +426,8 @@ namespace TUIO
 		
         /**
          * <summary>
-         * Returns the rotation acceleration of this TuioBlob.</summary>
-         * <returns>the rotation acceleration of this TuioBlob</returns>
+         * Returns the rotation acceleration of this TuioBlob25D.</summary>
+         * <returns>the rotation acceleration of this TuioBlob25D</returns>
          */
         public float RotationAccel
         {
@@ -437,14 +442,14 @@ namespace TUIO
 		
         /**
          * <summary>
-         * Returns true of this TuioBlob is moving.</summary>
-         * <returns>true of this TuioBlob is moving</returns>
+         * Returns true of this TuioBlob25D is moving.</summary>
+         * <returns>true of this TuioBlob25D is moving</returns>
          */
         public override bool isMoving
         {
             get
             {
-                if ((state == TUIO_ACCELERATING) || (state == TUIO_DECELERATING) || (state == TUIO_ROTATING)) return true;
+                if ((state == TUIO_ACCELERATING) || (state == TUIO_DECELERATING) || (state == TUIO_ROTATING) || (state == TUIO_RESIZED)) return true;
                 else return false;
             }
         }

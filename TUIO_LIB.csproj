@@ -44,11 +44,17 @@
     <Compile Include="OSC.NET\OSCPacket.cs" />
     <Compile Include="OSC.NET\OSCReceiver.cs" />
     <Compile Include="OSC.NET\OSCTransmitter.cs" />
+    <Compile Include="TUIO\TuioBlob25D.cs" />
+    <Compile Include="TUIO\TuioBlob3D.cs" />
     <Compile Include="TUIO\TuioClient.cs" />
     <Compile Include="TUIO\TuioContainer.cs" />
     <Compile Include="TUIO\TuioCursor.cs" />
+    <Compile Include="TUIO\TuioCursor25D.cs" />
+    <Compile Include="TUIO\TuioCursor3D.cs" />
     <Compile Include="TUIO\TuioListener.cs" />
     <Compile Include="TUIO\TuioObject.cs" />
+    <Compile Include="TUIO\TuioObject25D.cs" />
+    <Compile Include="TUIO\TuioObject3D.cs" />
     <Compile Include="TUIO\TuioPoint.cs" />
     <Compile Include="TUIO\TuioTime.cs" />
     <Compile Include="OSC.NET\OSCTimeTag.cs" />

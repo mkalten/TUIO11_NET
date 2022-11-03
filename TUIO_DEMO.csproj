@@ -28,7 +28,8 @@
     <NoStdLib>false</NoStdLib>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType></DebugType>
+    <DebugType>
+    </DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -56,11 +57,17 @@
     <Compile Include="TuioDemo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TUIO\TuioBlob25D.cs" />
+    <Compile Include="TUIO\TuioBlob3D.cs" />
     <Compile Include="TUIO\TuioClient.cs" />
     <Compile Include="TUIO\TuioContainer.cs" />
     <Compile Include="TUIO\TuioCursor.cs" />
+    <Compile Include="TUIO\TuioCursor25D.cs" />
+    <Compile Include="TUIO\TuioCursor3D.cs" />
     <Compile Include="TUIO\TuioListener.cs" />
     <Compile Include="TUIO\TuioObject.cs" />
+    <Compile Include="TUIO\TuioObject25D.cs" />
+    <Compile Include="TUIO\TuioObject3D.cs" />
     <Compile Include="TUIO\TuioPoint.cs" />
     <Compile Include="TUIO\TuioTime.cs" />
     <Compile Include="OSC.NET\OSCTimeTag.cs" />

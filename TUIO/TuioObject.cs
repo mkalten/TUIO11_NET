@@ -62,7 +62,7 @@ namespace TUIO
          * <summary>
          * Defines the ROTATING state.</summary>
          */
-        public static readonly int TUIO_ROTATING = 5;
+        public static readonly int TUIO_ROTATING = 4;
         #endregion
 
         #region Constructors
@@ -80,7 +80,7 @@ namespace TUIO
          * <param name="a">the angle to assign</param>
          */
         public TuioObject(TuioTime ttime, long si, int sym, float xp, float yp, float a)
-            : base(ttime, si, xp, yp)
+            : base(ttime, si, xp, yp,0)
         {
             symbol_id = sym;
             angle = a;
@@ -100,7 +100,7 @@ namespace TUIO
          * <param name="a">the angle to assign</param>
          */
         public TuioObject(long si, int sym, float xp, float yp, float a)
-            : base(si, xp, yp)
+            : base(si, xp, yp, 0)
         {
             symbol_id = sym;
             angle = a;
@@ -145,7 +145,7 @@ namespace TUIO
          */
         public void update(TuioTime ttime, float xp, float yp, float a, float xs, float ys, float rs, float ma, float ra)
         {
-            base.update(ttime, xp, yp, xs, ys, ma);
+            base.update(ttime, xp, yp,0, xs, ys,0, ma);
             angle = a;
             rotation_speed = rs;
             rotation_accel = ra;
@@ -169,7 +169,7 @@ namespace TUIO
          */
         public void update(float xp, float yp, float a, float xs, float ys, float rs, float ma, float ra)
         {
-            base.update(xp, yp, xs, ys, ma);
+            base.update(xp, yp, 0, xs, ys, 0, ma);
             angle = a;
             rotation_speed = rs;
             rotation_accel = ra;
@@ -187,10 +187,10 @@ namespace TUIO
          * <param name="yp">the Y coordinate to assign</param>
          * <param name="a">the angle coordinate to assign</param>
          */
-        public void update(TuioTime ttime, float xp, float yp, float a)
+        public new void update(TuioTime ttime, float xp, float yp, float a)
         {
 			TuioPoint lastPoint = path.Last.Value;
-            base.update(ttime, xp, yp);
+            base.update(ttime, xp, yp, 0);
 
             TuioTime diffTime = currentTime - lastPoint.TuioTime;
             float dt = diffTime.TotalMilliseconds / 1000.0f;
@@ -221,7 +221,7 @@ namespace TUIO
             angle = tobj.Angle;
             rotation_speed = tobj.RotationSpeed;
             rotation_accel = tobj.RotationAccel;
-            if ((rotation_accel != 0) && (state != TUIO_STOPPED)) state = TUIO_ROTATING;
+            state = tobj.state;
         }
 
         /**
