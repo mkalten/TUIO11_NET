@@ -1,6 +1,7 @@
 /*
  TUIO C# Library - part of the reacTIVision project
- Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
+ Copyright (c) 2022 Nicolas Bremard <nicolas@bremard.fr>
+ Based on TuioBlob by Martin Kaltenbrunner <martin@tuio.org>
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public

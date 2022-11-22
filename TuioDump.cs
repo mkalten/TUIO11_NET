@@ -1,8 +1,9 @@
 /*
 	TUIO C# Example - part of the reacTIVision project
 	http://reactivision.sourceforge.net/
-
-	Copyright (c)
+    
+	Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
+	Modified by Bremard Nicolas <nicolas@bremard.fr> on 11/2022
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by

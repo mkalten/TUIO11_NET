@@ -1,6 +1,7 @@
 /*
  TUIO C# Library - part of the reacTIVision project
- Copyright (c) 
+ Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
+ Modified by Bremard Nicolas <nicolas@bremard.fr> on 11/2022
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -41,7 +42,7 @@ namespace TUIO
      * </code>
      * </example>
      *
-     * @author Nicolas Bremard
+     * @author Martin Kaltenbrunner
      * @version 1.1.7
      */
     public interface TuioListener
