@@ -1,6 +1,7 @@
 /*
  TUIO C# Library - part of the reacTIVision project
  Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
+Modified by Bremard Nicolas <nicolas@bremard.fr> on 11/2022
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -26,7 +27,7 @@ namespace TUIO
      * on the other hand the TuioPoint is the base class for the TuioCursor and TuioObject classes.
      *
      * @author Martin Kaltenbrunner
-     * @version 1.1.6
+     * @version 1.1.7
      */
     public class TuioPoint
     {
@@ -43,6 +44,12 @@ namespace TUIO
          * Y coordinate, representated as a floating point value in a range of 0..1</summary>
          */
         protected float ypos;
+
+        /**
+         * <summary>
+         * Z coordinate, representated as a floating point value in a range of 0..1</summary>
+         */
+        protected float zpos;
 
         /**
          * <summary>
@@ -69,6 +76,7 @@ namespace TUIO
         {
             xpos = 0.0f;
             ypos = 0.0f;
+            zpos = 0.0f;
             currentTime = TuioTime.SessionTime;
             startTime = new TuioTime(currentTime);
         }
@@ -80,11 +88,13 @@ namespace TUIO
          *
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          */
-        public TuioPoint(float xp, float yp)
+        public TuioPoint(float xp, float yp, float zp)
         {
             xpos = xp;
             ypos = yp;
+            zpos = zp;
             currentTime = TuioTime.SessionTime;
             startTime = new TuioTime(currentTime);
         }
@@ -100,6 +110,7 @@ namespace TUIO
         {
             xpos = tpoint.X;
             ypos = tpoint.Y;
+            zpos = tpoint.Z;
             currentTime = TuioTime.SessionTime;
             startTime = new TuioTime(currentTime);
         }
@@ -112,11 +123,13 @@ namespace TUIO
          * <param name="ttime">the TuioTime to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          */
-        public TuioPoint(TuioTime ttime, float xp, float yp)
+        public TuioPoint(TuioTime ttime, float xp, float yp, float zp)
         {
             xpos = xp;
             ypos = yp;
+            zpos = zp;
             currentTime = new TuioTime(ttime);
             startTime = new TuioTime(currentTime);
         }
@@ -136,6 +149,7 @@ namespace TUIO
         {
             xpos = tpoint.X;
             ypos = tpoint.Y;
+            zpos = tpoint.Z;
         }
 
         /**
@@ -145,11 +159,13 @@ namespace TUIO
          *
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          */
-        public void update(float xp, float yp)
+        public void update(float xp, float yp, float zp)
         {
             xpos = xp;
             ypos = yp;
+            zpos = zp;
         }
 
         /**
@@ -160,11 +176,13 @@ namespace TUIO
          * <param name="ttime">the TuioTime to assign</param>
          * <param name="xp">the X coordinate to assign</param>
          * <param name="yp">the Y coordinate to assign</param>
+         * <param name="zp">the Z coordinate to assign</param>
          */
-        public void update(TuioTime ttime, float xp, float yp)
+        public void update(TuioTime ttime, float xp, float yp, float zp)
         {
             xpos = xp;
             ypos = yp;
+            zpos = zp;
             currentTime = new TuioTime(ttime);
         }
 
@@ -206,6 +224,22 @@ namespace TUIO
 
         /**
          * <summary>
+         * Returns the Z coordinate of this TuioPoint.</summary>
+         * <returns>the Z coordinate of this TuioPoint</returns>
+         */
+        public float Z
+        {
+            get { return zpos; }
+        }
+
+        [Obsolete("This method is provided only for compatability with legacy code. Use of the property instead is recommended.")]
+        public float getZ()
+        {
+            return Z;
+        }
+
+        /**
+         * <summary>
          * Returns the distance to the provided coordinates</summary>
          *
          * <param name="xp">the X coordinate of the distant point</param>
@@ -219,6 +253,24 @@ namespace TUIO
             return (float)Math.Sqrt(dx * dx + dy * dy);
         }
 
+
+        /**
+         * <summary>
+         * Returns the distance to the provided coordinates</summary>
+         *
+         * <param name="xp">the X coordinate of the distant point</param>
+         * <param name="yp">the Y coordinate of the distant point</param>
+         * <param name="zp">the Z coordinate of the distant point</param>
+         * <returns>the distance to the provided coordinates</returns>
+         */
+        public float getDistance(float xp, float yp, float zp)
+        {
+            float dx = xpos - xp;
+            float dy = ypos - yp;
+            float dz = zpos - zp;
+            return (float)Math.Sqrt(dx * dx + dy * dy + dz * dz);
+        }
+
         /**
          * <summary>
          * Returns the distance to the provided TuioPoint</summary>
@@ -228,8 +280,28 @@ namespace TUIO
          */
         public float getDistance(TuioPoint tpoint)
         {
-            return getDistance(tpoint.X, tpoint.Y);
+            return getDistance(tpoint.X, tpoint.Y, tpoint.Z);
         }
+
+
+        /**
+         * <summary>
+         * Returns the distance to the provided coordinates</summary>
+         *
+         * <param name="xp">the X coordinate of the distant point</param>
+         * <param name="yp">the Y coordinate of the distant point</param>
+         * <param name="zp">the Z coordinate of the distant point</param>
+         * <returns>the distance to the provided coordinates</returns>
+         */
+        public float getSpaceDistance(float xp, float yp, float zp, int w, int h, int d)
+        {
+            float dx = w * xpos - w * xp;
+            float dy = h * ypos - h * yp;
+            float dz = d * zpos - d * zp;
+            return (float) Math.Sqrt(dx* dx + dy* dy + dz* dz);
+        }
+
+
 
         /**
          * <summary>
@@ -289,6 +361,172 @@ namespace TUIO
             return (getAngle(tpoint) / (float)Math.PI) * 180.0f;
         }
 
+
+
+
+
+        /**
+         * <summary>
+         * Returns the angle to the provided coordinates</summary>
+         *
+         * <param name="xp">the X coordinate of the distant point</param>
+         * <param name="yp">the Y coordinate of the distant point</param>
+         * <returns>the angle to the provided coordinates</returns>
+         */
+        public float getRollAngle(float xp, float yp, float zp)
+        {
+            return getAngle(xp,yp);
+        }
+
+        /**
+         * <summary>
+         * Returns the angle to the provided TuioPoint</summary>
+         *
+         * <param name="tpoint">the distant TuioPoint</param>
+         * <returns>the angle to the provided TuioPoint</returns>
+         */
+        public float getRollAngle(TuioPoint tpoint)
+        {
+            return getAngle(tpoint.X, tpoint.Y);
+        }
+
+        /**
+         * <summary>
+         * Returns the angle in degrees to the provided coordinates</summary>
+         *
+         * <param name="xp">the X coordinate of the distant point</param>
+         * <param name="yp">the Y coordinate of the distant point</param>
+         * <returns>the angle in degrees to the provided TuioPoint</returns>
+         */
+        public float getRollAngleDegrees(float xp, float yp, float zp)
+        {
+            return (getAngle(xp, yp) / (float)Math.PI) * 180.0f;
+        }
+
+        /**
+         * <summary>
+         * Returns the angle in degrees to the provided TuioPoint</summary>
+         *
+         * <param name="tpoint">the distant TuioPoint</param>
+         * <returns>the angle in degrees to the provided TuioPoint</returns>
+         */
+        public float getRollAngleDegrees(TuioPoint tpoint)
+        {
+            return (getRollAngle(tpoint) / (float)Math.PI) * 180.0f;
+        }
+
+
+
+
+        /**
+         * <summary>
+         * Returns the angle to the provided coordinates</summary>
+         *
+         * <param name="xp">the X coordinate of the distant point</param>
+         * <param name="yp">the Y coordinate of the distant point</param>
+         * <returns>the angle to the provided coordinates</returns>
+         */
+        public float getPitchAngle(float xp, float yp, float zp)
+        {
+            return getAngle(zp, yp);
+        }
+
+        /**
+         * <summary>
+         * Returns the angle to the provided TuioPoint</summary>
+         *
+         * <param name="tpoint">the distant TuioPoint</param>
+         * <returns>the angle to the provided TuioPoint</returns>
+         */
+        public float getPitchAngle(TuioPoint tpoint)
+        {
+            return getAngle(tpoint.Z, tpoint.Y);
+        }
+
+        /**
+         * <summary>
+         * Returns the angle in degrees to the provided coordinates</summary>
+         *
+         * <param name="xp">the X coordinate of the distant point</param>
+         * <param name="yp">the Y coordinate of the distant point</param>
+         * <returns>the angle in degrees to the provided TuioPoint</returns>
+         */
+        public float getPitchAngleDegrees(float xp, float yp, float zp)
+        {
+            return (getAngle(zp, yp) / (float)Math.PI) * 180.0f;
+        }
+
+        /**
+         * <summary>
+         * Returns the angle in degrees to the provided TuioPoint</summary>
+         *
+         * <param name="tpoint">the distant TuioPoint</param>
+         * <returns>the angle in degrees to the provided TuioPoint</returns>
+         */
+        public float getPitchAngleDegrees(TuioPoint tpoint)
+        {
+            return (getPitchAngle(tpoint) / (float)Math.PI) * 180.0f;
+        }
+
+
+
+
+        /**
+         * <summary>
+         * Returns the angle to the provided coordinates</summary>
+         *
+         * <param name="xp">the X coordinate of the distant point</param>
+         * <param name="yp">the Y coordinate of the distant point</param>
+         * <returns>the angle to the provided coordinates</returns>
+         */
+        public float getYawAngle(float xp, float yp, float zp)
+        {
+            return getAngle(xp, zp);
+        }
+
+        /**
+         * <summary>
+         * Returns the angle to the provided TuioPoint</summary>
+         *
+         * <param name="tpoint">the distant TuioPoint</param>
+         * <returns>the angle to the provided TuioPoint</returns>
+         */
+        public float getYawAngle(TuioPoint tpoint)
+        {
+            return getAngle(tpoint.X, tpoint.Z);
+        }
+
+        /**
+         * <summary>
+         * Returns the angle in degrees to the provided coordinates</summary>
+         *
+         * <param name="xp">the X coordinate of the distant point</param>
+         * <param name="yp">the Y coordinate of the distant point</param>
+         * <returns>the angle in degrees to the provided TuioPoint</returns>
+         */
+        public float getYawAngleDegrees(float xp, float yp, float zp)
+        {
+            return (getAngle(xp, zp) / (float)Math.PI) * 180.0f;
+        }
+
+        /**
+         * <summary>
+         * Returns the angle in degrees to the provided TuioPoint</summary>
+         *
+         * <param name="tpoint">the distant TuioPoint</param>
+         * <returns>the angle in degrees to the provided TuioPoint</returns>
+         */
+        public float getYawAngleDegrees(TuioPoint tpoint)
+        {
+            return (getYawAngle(tpoint) / (float)Math.PI) * 180.0f;
+        }
+
+
+
+
+       
+
+
         /**
          * <summary>
          * Returns the X coordinate in pixels relative to the provided screen width.</summary>
@@ -312,6 +550,44 @@ namespace TUIO
         {
             return (int)Math.Round(ypos * height);
         }
+
+
+        /**
+         * <summary>
+         * Returns the Y coordinate in pixels relative to the provided screen height.</summary>
+         *
+         * <param name="height">the screen height</param>
+         * <returns>the Y coordinate of this TuioPoint in pixels relative to the provided screen height</returns>
+         */
+        public int getSpaceX(int width)
+        {
+            return (int)Math.Round(xpos * width);
+        }
+
+        /**
+         * <summary>
+         * Returns the Y coordinate in pixels relative to the provided screen height.</summary>
+         *
+         * <param name="height">the screen height</param>
+         * <returns>the Y coordinate of this TuioPoint in pixels relative to the provided screen height</returns>
+         */
+        public int getSpaceY(int height)
+        {
+            return (int)Math.Round(ypos * height);
+        }
+
+        /**
+         * <summary>
+         * Returns the Y coordinate in pixels relative to the provided screen height.</summary>
+         *
+         * <param name="height">the screen height</param>
+         * <returns>the Y coordinate of this TuioPoint in pixels relative to the provided screen height</returns>
+         */
+        public int getSpaceZ(int depth)
+        {
+            return (int)Math.Round(zpos * depth);
+        }
+
 
         /**
          * <summary>

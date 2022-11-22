@@ -1,6 +1,7 @@
 /*
  TUIO C# Library - part of the reacTIVision project
  Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
+ Modified by Bremard Nicolas <nicolas@bremard.fr> on 11/2022
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -42,7 +43,7 @@ namespace TUIO
      * </example>
      *
      * @author Martin Kaltenbrunner
-     * @version 1.1.6
+     * @version 1.1.7
      */
     public interface TuioListener
     {
@@ -117,6 +118,166 @@ namespace TUIO
          * <param name="tblb">the TuioBlob reference associated to the removeTuioBlob event</param>
          */
 		void removeTuioBlob(TuioBlob tblb);
+
+
+
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when a new TuioObject25D is added to the session.</summary>
+         *
+         * <param name="tobj">the TuioObject25D reference associated to the addTuioObject25D event</param>
+         */
+        void addTuioObject25D(TuioObject25D tobj);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioObject25D is updated during the session.</summary>
+         *
+         * <param name="tobj">the TuioObject25D reference associated to the updateTuioObject25D event</param>
+         */
+        void updateTuioObject25D(TuioObject25D tobj);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioObject25D is removed from the session.</summary>
+         *
+         * <param name="tobj">the TuioObject25D reference associated to the removeTuioObject25D event</param>
+         */
+        void removeTuioObject25D(TuioObject25D tobj);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when a new TuioCursor25D is added to the session.</summary>
+         *
+         * <param name="tcur">the TuioCursor25D reference associated to the addTuioCursor25D event</param>
+         */
+        void addTuioCursor25D(TuioCursor25D tcur);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioCursor25D is updated during the session.</summary>
+         *
+         * <param name="tcur">the TuioCursor25D reference associated to the updateTuioCursor25D event</param>
+         */
+        void updateTuioCursor25D(TuioCursor25D tcur);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioCursor25D is removed from the session.</summary>
+         *
+         * <param name="tcur">the TuioCursor25D reference associated to the removeTuioCursor25D event</param>
+         */
+        void removeTuioCursor25D(TuioCursor25D tcur);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when a new TuioBlob25D is added to the session.</summary>
+         *
+         * <param name="tblb">the TuioBlob25D reference associated to the addTuioBlob25D event</param>
+         */
+        void addTuioBlob25D(TuioBlob25D tblb);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioBlob25D is updated during the session.</summary>
+         *
+         * <param name="tblb">the TuioBlob25D reference associated to the updateTuioBlob25D event</param>
+         */
+        void updateTuioBlob25D(TuioBlob25D tblb);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioBlob25D is removed from the session.</summary>
+         *
+         * <param name="tblb">the TuioBlob25D reference associated to the removeTuioBlob25D event</param>
+         */
+        void removeTuioBlob25D(TuioBlob25D tblb);
+
+
+
+
+
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when a new TuioObject3D is added to the session.</summary>
+         *
+         * <param name="tobj">the TuioObject3D reference associated to the addTuioObject3D event</param>
+         */
+        void addTuioObject3D(TuioObject3D tobj);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioObject3D is updated during the session.</summary>
+         *
+         * <param name="tobj">the TuioObject3D reference associated to the updateTuioObject3D event</param>
+         */
+        void updateTuioObject3D(TuioObject3D tobj);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioObject3D is removed from the session.</summary>
+         *
+         * <param name="tobj">the TuioObject3D reference associated to the removeTuioObject3D event</param>
+         */
+        void removeTuioObject3D(TuioObject3D tobj);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when a new TuioCursor3D is added to the session.</summary>
+         *
+         * <param name="tcur">the TuioCursor3D reference associated to the addTuioCursor3D event</param>
+         */
+        void addTuioCursor3D(TuioCursor3D tcur);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioCursor3D is updated during the session.</summary>
+         *
+         * <param name="tcur">the TuioCursor3D reference associated to the updateTuioCursor3D event</param>
+         */
+        void updateTuioCursor3D(TuioCursor3D tcur);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioCursor3D is removed from the session.</summary>
+         *
+         * <param name="tcur">the TuioCursor3D reference associated to the removeTuioCursor3D event</param>
+         */
+        void removeTuioCursor3D(TuioCursor3D tcur);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when a new TuioBlob3D is added to the session.</summary>
+         *
+         * <param name="tblb">the TuioBlob3D reference associated to the addTuioBlob3D event</param>
+         */
+        void addTuioBlob3D(TuioBlob3D tblb);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioBlob3D is updated during the session.</summary>
+         *
+         * <param name="tblb">the TuioBlob3D reference associated to the updateTuioBlob3D event</param>
+         */
+        void updateTuioBlob3D(TuioBlob3D tblb);
+
+        /**
+         * <summary>
+         * This callback method is invoked by the TuioClient when an existing TuioBlob3D is removed from the session.</summary>
+         *
+         * <param name="tblb">the TuioBlob3D reference associated to the removeTuioBlob3D event</param>
+         */
+        void removeTuioBlob3D(TuioBlob3D tblb);
+
+
+
+
+
+
+
+
 
         /**
          * <summary>

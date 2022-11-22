@@ -176,6 +176,464 @@
             </summary>
             <returns>A string representation of the value of the current <see cref="T:OSC.NET.OscTimeTag"/> object.</returns>
         </member>
+        <member name="T:TUIO.TuioBlob25D">
+             <remarks>
+             The TuioBlob25D class encapsulates /tuio/25Dblb TUIO objects.
+             </remarks>
+            
+             @author  Nicolas Bremard
+             @version 1.1.7
+        </member>
+        <member name="F:TUIO.TuioBlob25D.blob_id">
+            <summary>
+            The individual symbol ID number that is assigned to each TuioBlob25D.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob25D.angle">
+            <summary>
+            The rotation angle value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob25D.width">
+            <summary>
+            The blob width value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob25D.height">
+            <summary>
+            The blob height value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob25D.area">
+            <summary>
+            The blob area value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob25D.rotation_speed">
+            <summary>
+            The rotation speed value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob25D.rotation_accel">
+            <summary>
+            The rotation acceleration value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob25D.TUIO_ROTATING">
+            <summary>
+            Defines the ROTATING state.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob25D.TUIO_RESIZED">
+            <summary>
+            Defines the RESIZED state.</summary>
+        </member>
+        <member name="M:TUIO.TuioBlob25D.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes a TuioTime argument and assigns it along with the provided
+             Session ID, Symbol ID, X and Y coordinate and angle to the newly created TuioBlob25D.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="si">the Session ID to assign</param>
+             <param name="bi">the Blob ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="f">the area to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob25D.#ctor(System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes the provided Session ID, Symbol ID, X and Y coordinate
+             and angle, and assigs these values to the newly created TuioBlob25D.</summary>
+            
+             <param name="si">the Session ID to assign</param>
+             <param name="bi">the Blob ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="f">the area to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob25D.#ctor(TUIO.TuioBlob25D)">
+             <summary>
+             This constructor takes the atttibutes of the provided TuioBlob25D
+             and assigs these values to the newly created TuioBlob25D.</summary>
+            
+             <param name="tblb">the TuioBlob25D to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob25D.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate, angle, X and Y velocity, motion acceleration,
+             rotation speed and rotation acceleration to the private TuioBlob25D attributes.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle coordinate to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="f">the area to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="rs">the rotation velocity to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+             <param name="ra">the rotation acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob25D.update(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Assigns the provided X and Y coordinate, angle, X and Y velocity, motion acceleration
+             rotation velocity and rotation acceleration to the private TuioContainer attributes.
+             The TuioTime time stamp remains unchanged.</summary>
+            
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle coordinate to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="f">the area to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="rs">the rotation velocity to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+             <param name="ra">the rotation acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob25D.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate and angle to the private TuioBlob25D attributes.
+             The speed and accleration values are calculated accordingly.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle coordinate to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="f">the area to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob25D.update(TUIO.TuioBlob25D)">
+             <summary>
+             Takes the atttibutes of the provided TuioBlob25D
+             and assigs these values to this TuioBlob25D.
+             The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
+            
+             <param name="tblb">the TuioContainer to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob25D.stop(TUIO.TuioTime)">
+            <summary>
+            This method is used to calculate the speed and acceleration values of a
+            TuioBlob25D with unchanged position and angle.</summary>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.BlobID">
+            <summary>
+            Returns the symbol ID of this TuioBlob25D.</summary>
+            <returns>the symbol ID of this TuioBlob25D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.Width">
+            <summary>
+            Returns the width of this TuioBlob25D.</summary>
+            <returns>the width of this TuioBlob25D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.Height">
+            <summary>
+            Returns the height of this TuioBlob25D.</summary>
+            <returns>the heigth of this TuioBlob25D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.Area">
+            <summary>
+            Returns the area of this TuioBlob25D.</summary>
+            <returns>the area of this TuioBlob25D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.Angle">
+            <summary>
+            Returns the rotation angle of this TuioBlob25D.</summary>
+            <returns>the rotation angle of this TuioBlob25D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.AngleDegrees">
+            <summary>
+            Returns the rotation angle in degrees of this TuioBlob25D.</summary>
+            <returns>the rotation angle in degrees of this TuioBlob25D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.RotationSpeed">
+            <summary>
+            Returns the rotation speed of this TuioBlob25D.</summary>
+            <returns>the rotation speed of this TuioBlob25D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.RotationAccel">
+            <summary>
+            Returns the rotation acceleration of this TuioBlob25D.</summary>
+            <returns>the rotation acceleration of this TuioBlob25D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob25D.isMoving">
+            <summary>
+            Returns true of this TuioBlob25D is moving.</summary>
+            <returns>true of this TuioBlob25D is moving</returns>
+        </member>
+        <member name="T:TUIO.TuioBlob3D">
+             <remarks>
+             The TuioBlob3D class encapsulates /tuio/3Dblb TUIO objects.
+             </remarks>
+            
+             @author  Nicolas Bremard
+             @version 1.1.7
+        </member>
+        <member name="F:TUIO.TuioBlob3D.blob_id">
+            <summary>
+            The individual symbol ID number that is assigned to each TuioBlob3D.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob3D.roll">
+            The roll angle value.
+        </member>
+        <member name="F:TUIO.TuioBlob3D.roll_speed">
+            The roll speed value.
+        </member>
+        <member name="F:TUIO.TuioBlob3D.pitch">
+            The pitch angle value.
+        </member>
+        <member name="F:TUIO.TuioBlob3D.pitch_speed">
+            The pitch speed value.
+        </member>
+        <member name="F:TUIO.TuioBlob3D.yaw">
+            The yaw angle value.
+        </member>
+        <member name="F:TUIO.TuioBlob3D.yaw_speed">
+            The yaw speed value.
+        </member>
+        <member name="F:TUIO.TuioBlob3D.width">
+            <summary>
+            The blob width value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob3D.height">
+            <summary>
+            The blob height value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob3D.depth">
+            <summary>
+            The blob height value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob3D.volume">
+            <summary>
+            The blob volume value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob3D.rotation_accel">
+            <summary>
+            The rotation acceleration value.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob3D.TUIO_ROTATING">
+            <summary>
+            Defines the ROTATING state.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob3D.TUIO_RESIZED">
+            <summary>
+            Defines the RESIZED state.</summary>
+        </member>
+        <member name="M:TUIO.TuioBlob3D.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes a TuioTime argument and assigns it along with the provided
+             Session ID, Symbol ID, X and Y coordinate and angle to the newly created TuioBlob3D.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="si">the Session ID to assign</param>
+             <param name="bi">the Blob ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="d">the depth to assign</param>
+             <param name="v">the volume to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob3D.#ctor(System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes the provided Session ID, Symbol ID, X and Y coordinate
+             and angle, and assigs these values to the newly created TuioBlob3D.</summary>
+            
+             <param name="si">the Session ID to assign</param>
+             <param name="bi">the Blob ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="d">the depth to assign</param>
+             <param name="v">the volume to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob3D.#ctor(TUIO.TuioBlob3D)">
+             <summary>
+             This constructor takes the atttibutes of the provided TuioBlob3D
+             and assigs these values to the newly created TuioBlob3D.</summary>
+            
+             <param name="tblb">the TuioBlob3D to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob3D.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate, angle, X and Y velocity, motion acceleration,
+             rotation speed and rotation acceleration to the private TuioBlob3D attributes.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="d">the depth to assign</param>
+             <param name="v">the volume to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="zs">the Y velocity to assign</param>
+             <param name="ros">the roll speed to assign</param>
+             <param name="pos">the pitch speed to assign</param>
+             <param name="yos">the yaw speed to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+             <param name="ra">the rotation acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob3D.update(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Assigns the provided X and Y coordinate, angle, X and Y velocity, motion acceleration
+             rotation velocity and rotation acceleration to the private TuioContainer attributes.
+             The TuioTime time stamp remains unchanged.</summary>
+            
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="d">the depth to assign</param>
+             <param name="v">the volume to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="zs">the Y velocity to assign</param>
+             <param name="ros">the roll speed to assign</param>
+             <param name="pos">the pitch speed to assign</param>
+             <param name="yos">the yaw speed to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+             <param name="ra">the rotation acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob3D.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate and angle to the private TuioBlob3D attributes.
+             The speed and accleration values are calculated accordingly.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+             <param name="w">the width to assign</param>
+             <param name="h">the height to assign</param>
+             <param name="d">the depth to assign</param>
+             <param name="v">the volume to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob3D.update(TUIO.TuioBlob3D)">
+             <summary>
+             Takes the atttibutes of the provided TuioBlob3D
+             and assigs these values to this TuioBlob3D.
+             The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
+            
+             <param name="tblb">the TuioContainer to assign</param>
+        </member>
+        <member name="M:TUIO.TuioBlob3D.stop(TUIO.TuioTime)">
+            <summary>
+            This method is used to calculate the speed and acceleration values of a
+            TuioBlob3D with unchanged position and angle.</summary>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.BlobID">
+            <summary>
+            Returns the symbol ID of this TuioBlob3D.</summary>
+            <returns>the symbol ID of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.Width">
+            <summary>
+            Returns the width of this TuioBlob3D.</summary>
+            <returns>the width of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.Height">
+            <summary>
+            Returns the height of this TuioBlob3D.</summary>
+            <returns>the heigth of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.Depth">
+            <summary>
+            Returns the depth of this TuioBlob3D.</summary>
+            <returns>the depth of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.Volume">
+            <summary>
+            Returns the volume of this TuioBlob3D.</summary>
+            <returns>the volume of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.Roll">
+            <summary>
+            Returns the rotation roll of this TuioBlob3D.</summary>
+            <returns>the rotation roll of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.RollDegrees">
+            <summary>
+            Returns the rotation roll in degrees of this TuioBlob3D.</summary>
+            <returns>the rotation roll in degrees of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.Pitch">
+            <summary>
+            Returns the rotation pitch of this TuioBlob3D.</summary>
+            <returns>the rotation pitch of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.PitchDegrees">
+            <summary>
+            Returns the rotation pitch in degrees of this TuioBlob3D.</summary>
+            <returns>the rotation pitch in degrees of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.Yaw">
+            <summary>
+            Returns the rotation yaw of this TuioBlob3D.</summary>
+            <returns>the rotation yaw of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.YawDegrees">
+            <summary>
+            Returns the rotation yaw in degrees of this TuioBlob3D.</summary>
+            <returns>the rotation yaw in degrees of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.RollSpeed">
+            <summary>
+            Returns the roll speed of this TuioBlob3D.</summary>
+            <returns>the roll speed of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.PitchSpeed">
+            <summary>
+            Returns the pitch speed of this TuioBlob3D.</summary>
+            <returns>the pitch speed of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.YawSpeed">
+            <summary>
+            Returns the yaw speed of this TuioBlob3D.</summary>
+            <returns>the yaw speed of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.RotationAccel">
+            <summary>
+            Returns the rotation acceleration of this TuioBlob3D.</summary>
+            <returns>the rotation acceleration of this TuioBlob3D</returns>
+        </member>
+        <member name="P:TUIO.TuioBlob3D.isMoving">
+            <summary>
+            Returns true of this TuioBlob3D is moving.</summary>
+            <returns>true of this TuioBlob3D is moving</returns>
+        </member>
         <member name="T:TUIO.TuioClient">
                  * <remarks>
                  * The TuioClient class is the central TUIO protocol decoder component. It provides a simple callback infrastructure using the {@link TuioListener} interface.
@@ -274,6 +732,72 @@
             or NULL if the Session ID does not refer to an active TuioBlob</summary>
             <returns>an active TuioBlob corresponding to the provided Session ID or NULL</returns>
         </member>
+        <member name="M:TUIO.TuioClient.getTuioObjects25D">
+            <summary>
+            Returns a List of all currently active TuioObjects25D</summary>
+            <returns>a List of all currently active TuioObjects25D</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioCursors25D">
+            <summary>
+            Returns a List of all currently active TuioCursors25D</summary>
+            <returns>a List of all currently active TuioCursors25D</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioBlobs25D">
+            <summary>
+            Returns a List of all currently active TuioBlobs25D</summary>
+            <returns>a List of all currently active TuioBlobs25D</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioObject25D(System.Int64)">
+            <summary>
+            Returns the TuioObject25D corresponding to the provided Session ID
+            or NULL if the Session ID does not refer to an active TuioObject25D</summary>
+            <returns>an active TuioObject25D corresponding to the provided Session ID or NULL</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioCursor25D(System.Int64)">
+            <summary>
+            Returns the TuioCursor25D corresponding to the provided Session ID
+            or NULL if the Session ID does not refer to an active TuioCursor25D</summary>
+            <returns>an active TuioCursor25D corresponding to the provided Session ID or NULL</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioBlob25D(System.Int64)">
+            <summary>
+            Returns the TuioBlob25D corresponding to the provided Session ID
+            or NULL if the Session ID does not refer to an active TuioBlob25D</summary>
+            <returns>an active TuioBlob25D corresponding to the provided Session ID or NULL</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioObjects3D">
+            <summary>
+            Returns a List of all currently active TuioObjects3D</summary>
+            <returns>a List of all currently active TuioObjects3D</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioCursors3D">
+            <summary>
+            Returns a List of all currently active TuioCursors3D</summary>
+            <returns>a List of all currently active TuioCursors3D</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioBlobs3D">
+            <summary>
+            Returns a List of all currently active TuioBlobs3D</summary>
+            <returns>a List of all currently active TuioBlobs3D</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioObject3D(System.Int64)">
+            <summary>
+            Returns the TuioObject3D corresponding to the provided Session ID
+            or NULL if the Session ID does not refer to an active TuioObject3D</summary>
+            <returns>an active TuioObject3D corresponding to the provided Session ID or NULL</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioCursor3D(System.Int64)">
+            <summary>
+            Returns the TuioCursor3D corresponding to the provided Session ID
+            or NULL if the Session ID does not refer to an active TuioCursor3D</summary>
+            <returns>an active TuioCursor3D corresponding to the provided Session ID or NULL</returns>
+        </member>
+        <member name="M:TUIO.TuioClient.getTuioBlob3D(System.Int64)">
+            <summary>
+            Returns the TuioBlob3D corresponding to the provided Session ID
+            or NULL if the Session ID does not refer to an active TuioBlob3D</summary>
+            <returns>an active TuioBlob3D corresponding to the provided Session ID or NULL</returns>
+        </member>
         <member name="T:TUIO.TuioContainer">
              <remarks>The abstract TuioContainer class defines common attributes that apply 
              to both subclasses (TuioObject and TuioCursor).</remarks>
@@ -295,6 +819,10 @@
             <summary>
             The Y-axis velocity value.</summary>
         </member>
+        <member name="F:TUIO.TuioContainer.z_speed">
+            <summary>
+            The Z-axis velocity value.</summary>
+        </member>
         <member name="F:TUIO.TuioContainer.motion_speed">
             <summary>
             The motion speed value.</summary>
@@ -306,6 +834,10 @@
         <member name="F:TUIO.TuioContainer.path">
             <summary>
             A LinkedList of TuioPoints containing all the previous positions of the TUIO component.</summary>
+        </member>
+        <member name="F:TUIO.TuioContainer.TUIO_IDLE">
+            <summary>
+            Defines the REMOVED state.</summary>
         </member>
         <member name="F:TUIO.TuioContainer.TUIO_ADDED">
             <summary>
@@ -331,7 +863,7 @@
             <summary>
             Reflects the current state of the TuioComponent</summary>
         </member>
-        <member name="M:TUIO.TuioContainer.#ctor(TUIO.TuioTime,System.Int64,System.Single,System.Single)">
+        <member name="M:TUIO.TuioContainer.#ctor(TUIO.TuioTime,System.Int64,System.Single,System.Single,System.Single)">
             <summary>
             This constructor takes a TuioTime argument and assigns it along with the provided
             Session ID, X and Y coordinate to the newly created TuioContainer.</summary>
@@ -340,8 +872,9 @@
             <param name="si">the Session ID to assign</param>
             <param name="xp">the X coordinate to assign</param>
             <param name="yp">the Y coordinate to assign</param>
+            <param name="zp">the Z coordinate to assign</param>
         </member>
-        <member name="M:TUIO.TuioContainer.#ctor(System.Int64,System.Single,System.Single)">
+        <member name="M:TUIO.TuioContainer.#ctor(System.Int64,System.Single,System.Single,System.Single)">
             <summary>
             This constructor takes the provided Session ID, X and Y coordinate
             and assigs these values to the newly created TuioContainer.</summary>
@@ -349,6 +882,7 @@
             <param name="si">the Session ID to assign</param>
             <param name="xp">the X coordinate to assign</param>
             <param name="yp">the Y coordinate to assign</param>
+            <param name="zp">the Z coordinate to assign</param>
         </member>
         <member name="M:TUIO.TuioContainer.#ctor(TUIO.TuioContainer)">
             <summary>
@@ -357,7 +891,7 @@
             
             <param name="tcon">the TuioContainer to assign</param>
         </member>
-        <member name="M:TUIO.TuioContainer.update(TUIO.TuioTime,System.Single,System.Single)">
+        <member name="M:TUIO.TuioContainer.update(TUIO.TuioTime,System.Single,System.Single,System.Single)">
                      * <summary>
             	     * Takes a TuioTime argument and assigns it along with the provided
             	     * X and Y coordinate to the private TuioContainer attributes.
@@ -365,13 +899,14 @@
             	     * <param name="ttime">the TuioTime to assign</param>
             	     * <param name="xp">the X coordinate to assign</param>
             	     * <param name="yp">the Y coordinate to assign</param>
+            	     * <param name="zp">the Z coordinate to assign</param>
         </member>
         <member name="M:TUIO.TuioContainer.stop(TUIO.TuioTime)">
             <summary>
             This method is used to calculate the speed and acceleration values of
             TuioContainers with unchanged positions.</summary>
         </member>
-        <member name="M:TUIO.TuioContainer.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:TUIO.TuioContainer.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
              <summary>
              Takes a TuioTime argument and assigns it along with the provided
              X and Y coordinate, X and Y velocity and acceleration
@@ -380,19 +915,23 @@
              <param name="ttime">the TuioTime to assign</param>
              <param name="xp">the X coordinate to assign</param>
              <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Y coordinate to assign</param>
              <param name="xs">the X velocity to assign</param>
              <param name="ys">the Y velocity to assign</param>
+             <param name="zs">the Y velocity to assign</param>
              <param name="ma">the acceleration to assign</param>
         </member>
-        <member name="M:TUIO.TuioContainer.update(System.Single,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:TUIO.TuioContainer.update(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
              <summary>
              Assigns the provided X and Y coordinate, X and Y velocity and acceleration
              to the private TuioContainer attributes. The TuioTime time stamp remains unchanged.</summary>
             
              <param name="xp">the X coordinate to assign</param>
              <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
              <param name="xs">the X velocity to assign</param>
              <param name="ys">the Y velocity to assign</param>
+             <param name="zs">the Z velocity to assign</param>
              <param name="ma">the acceleration to assign</param>
         </member>
         <member name="M:TUIO.TuioContainer.update(TUIO.TuioContainer)">
@@ -424,6 +963,11 @@
             <summary>
             Returns the Y velocity of this TuioContainer.</summary>
             <returns>the Y velocity of this TuioContainer</returns>
+        </member>
+        <member name="P:TUIO.TuioContainer.ZSpeed">
+            <summary>
+            Returns the Z velocity of this TuioContainer.</summary>
+            <returns>the Z velocity of this TuioContainer</returns>
         </member>
         <member name="P:TUIO.TuioContainer.Position">
             <summary>
@@ -494,10 +1038,150 @@
             
              <param name="tcur">the TuioCursor to assign</param>
         </member>
+        <member name="M:TUIO.TuioCursor.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate, angle, X and Y velocity, motion acceleration,
+             rotation speed and rotation acceleration to the private TuioObject attributes.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioCursor.update(System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Assigns the provided X and Y coordinate, angle, X and Y velocity, motion acceleration
+             rotation velocity and rotation acceleration to the private TuioContainer attributes.
+             The TuioTime time stamp remains unchanged.</summary>
+            
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioCursor.update(TUIO.TuioTime,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate and angle to the private TuioObject attributes.
+             The speed and accleration values are calculated accordingly.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+        </member>
+        <member name="M:TUIO.TuioCursor.update(TUIO.TuioCursor)">
+             <summary>
+             Takes the atttibutes of the provided TuioCursor
+             and assigs these values to this TuioCursor.
+             The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
+            
+             <param name="tcur">the TuioContainer to assign</param>
+        </member>
+        <member name="M:TUIO.TuioCursor.stop(TUIO.TuioTime)">
+            <summary>
+            This method is used to calculate the speed and acceleration values of a
+            TuioCursor.</summary>
+        </member>
         <member name="P:TUIO.TuioCursor.CursorID">
             <summary>
             Returns the Cursor ID of this TuioCursor.</summary>
             <returns>the Cursor ID of this TuioCursor</returns>
+        </member>
+        <member name="T:TUIO.TuioCursor25D">
+             <summary>
+             The TuioCursor25D class encapsulates /tuio/25Dcur TUIO cursors.</summary>
+            
+             @authorNicolas Bremard
+             @version 1.1.7
+        </member>
+        <member name="F:TUIO.TuioCursor25D.cursor_id">
+            <summary>
+            The individual cursor ID number that is assigned to each TuioCursor25D.</summary>
+        </member>
+        <member name="M:TUIO.TuioCursor25D.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes a TuioTime argument and assigns it along with the provided
+             Session ID, Cursor ID, X and Y coordinate to the newly created TuioCursor25D.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="si">the Session ID to assign</param>
+             <param name="ci">the Cursor ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+        </member>
+        <member name="M:TUIO.TuioCursor25D.#ctor(System.Int64,System.Int32,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes the provided Session ID, Cursor ID, X and Y coordinate
+             and assigs these values to the newly created TuioCursor25D.</summary>
+            
+             <param name="si">the Session ID to assign</param>
+             <param name="ci">the Cursor ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+        </member>
+        <member name="M:TUIO.TuioCursor25D.#ctor(TUIO.TuioCursor25D)">
+             <summary>
+             This constructor takes the atttibutes of the provided TuioCursor25D
+             and assigs these values to the newly created TuioCursor25D.</summary>
+            
+             <param name="tcur">the TuioCursor25D to assign</param>
+        </member>
+        <member name="P:TUIO.TuioCursor25D.CursorID">
+            <summary>
+            Returns the Cursor ID of this TuioCursor25D.</summary>
+            <returns>the Cursor ID of this TuioCursor25D</returns>
+        </member>
+        <member name="T:TUIO.TuioCursor3D">
+             <summary>
+             The TuioCursor3D class encapsulates /tuio/3Dcur TUIO cursors.</summary>
+            
+             @authorNicolas Bremard
+             @version 1.1.7
+        </member>
+        <member name="F:TUIO.TuioCursor3D.cursor_id">
+            <summary>
+            The individual cursor ID number that is assigned to each TuioCursor3D.</summary>
+        </member>
+        <member name="M:TUIO.TuioCursor3D.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes a TuioTime argument and assigns it along with the provided
+             Session ID, Cursor ID, X and Y coordinate to the newly created TuioCursor3D.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="si">the Session ID to assign</param>
+             <param name="ci">the Cursor ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+        </member>
+        <member name="M:TUIO.TuioCursor3D.#ctor(System.Int64,System.Int32,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes the provided Session ID, Cursor ID, X and Y coordinate
+             and assigs these values to the newly created TuioCursor3D.</summary>
+            
+             <param name="si">the Session ID to assign</param>
+             <param name="ci">the Cursor ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+        </member>
+        <member name="M:TUIO.TuioCursor3D.#ctor(TUIO.TuioCursor3D)">
+             <summary>
+             This constructor takes the atttibutes of the provided TuioCursor3D
+             and assigs these values to the newly created TuioCursor3D.</summary>
+            
+             <param name="tcur">the TuioCursor3D to assign</param>
+        </member>
+        <member name="P:TUIO.TuioCursor3D.CursorID">
+            <summary>
+            Returns the Cursor ID of this TuioCursor3D.</summary>
+            <returns>the Cursor ID of this TuioCursor3D</returns>
         </member>
         <member name="T:TUIO.TuioListener">
              <para>
@@ -519,8 +1203,8 @@
              </code>
              </example>
             
-             @author Martin Kaltenbrunner
-             @version 1.1.6
+             @author Nicolas Bremard
+             @version 1.1.7
         </member>
         <member name="M:TUIO.TuioListener.addTuioObject(TUIO.TuioObject)">
              <summary>
@@ -575,6 +1259,114 @@
              This callback method is invoked by the TuioClient when an existing TuioBlob is removed from the session.</summary>
             
              <param name="tblb">the TuioBlob reference associated to the removeTuioBlob event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.addTuioObject25D(TUIO.TuioObject25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when a new TuioObject25D is added to the session.</summary>
+            
+             <param name="tobj">the TuioObject25D reference associated to the addTuioObject25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.updateTuioObject25D(TUIO.TuioObject25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioObject25D is updated during the session.</summary>
+            
+             <param name="tobj">the TuioObject25D reference associated to the updateTuioObject25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.removeTuioObject25D(TUIO.TuioObject25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioObject25D is removed from the session.</summary>
+            
+             <param name="tobj">the TuioObject25D reference associated to the removeTuioObject25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.addTuioCursor25D(TUIO.TuioCursor25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when a new TuioCursor25D is added to the session.</summary>
+            
+             <param name="tcur">the TuioCursor25D reference associated to the addTuioCursor25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.updateTuioCursor25D(TUIO.TuioCursor25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioCursor25D is updated during the session.</summary>
+            
+             <param name="tcur">the TuioCursor25D reference associated to the updateTuioCursor25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.removeTuioCursor25D(TUIO.TuioCursor25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioCursor25D is removed from the session.</summary>
+            
+             <param name="tcur">the TuioCursor25D reference associated to the removeTuioCursor25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.addTuioBlob25D(TUIO.TuioBlob25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when a new TuioBlob25D is added to the session.</summary>
+            
+             <param name="tblb">the TuioBlob25D reference associated to the addTuioBlob25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.updateTuioBlob25D(TUIO.TuioBlob25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioBlob25D is updated during the session.</summary>
+            
+             <param name="tblb">the TuioBlob25D reference associated to the updateTuioBlob25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.removeTuioBlob25D(TUIO.TuioBlob25D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioBlob25D is removed from the session.</summary>
+            
+             <param name="tblb">the TuioBlob25D reference associated to the removeTuioBlob25D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.addTuioObject3D(TUIO.TuioObject3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when a new TuioObject3D is added to the session.</summary>
+            
+             <param name="tobj">the TuioObject3D reference associated to the addTuioObject3D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.updateTuioObject3D(TUIO.TuioObject3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioObject3D is updated during the session.</summary>
+            
+             <param name="tobj">the TuioObject3D reference associated to the updateTuioObject3D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.removeTuioObject3D(TUIO.TuioObject3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioObject3D is removed from the session.</summary>
+            
+             <param name="tobj">the TuioObject3D reference associated to the removeTuioObject3D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.addTuioCursor3D(TUIO.TuioCursor3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when a new TuioCursor3D is added to the session.</summary>
+            
+             <param name="tcur">the TuioCursor3D reference associated to the addTuioCursor3D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.updateTuioCursor3D(TUIO.TuioCursor3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioCursor3D is updated during the session.</summary>
+            
+             <param name="tcur">the TuioCursor3D reference associated to the updateTuioCursor3D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.removeTuioCursor3D(TUIO.TuioCursor3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioCursor3D is removed from the session.</summary>
+            
+             <param name="tcur">the TuioCursor3D reference associated to the removeTuioCursor3D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.addTuioBlob3D(TUIO.TuioBlob3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when a new TuioBlob3D is added to the session.</summary>
+            
+             <param name="tblb">the TuioBlob3D reference associated to the addTuioBlob3D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.updateTuioBlob3D(TUIO.TuioBlob3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioBlob3D is updated during the session.</summary>
+            
+             <param name="tblb">the TuioBlob3D reference associated to the updateTuioBlob3D event</param>
+        </member>
+        <member name="M:TUIO.TuioListener.removeTuioBlob3D(TUIO.TuioBlob3D)">
+             <summary>
+             This callback method is invoked by the TuioClient when an existing TuioBlob3D is removed from the session.</summary>
+            
+             <param name="tblb">the TuioBlob3D reference associated to the removeTuioBlob3D event</param>
         </member>
         <member name="M:TUIO.TuioListener.refresh(TUIO.TuioTime)">
              <summary>
@@ -725,6 +1517,364 @@
             Returns true of this TuioObject is moving.</summary>
             <returns>true of this TuioObject is moving</returns>
         </member>
+        <member name="T:TUIO.TuioObject25D">
+             <remarks>
+             The TuioObject class encapsulates /tuio/25Dobj TUIO objects.
+             </remarks>
+            
+             @author Nicolas Bremard
+             @version 1.1.7
+        </member>
+        <member name="F:TUIO.TuioObject25D.symbol_id">
+            <summary>
+            The individual symbol ID number that is assigned to each TuioObject.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject25D.angle">
+            <summary>
+            The rotation angle value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject25D.rotation_speed">
+            <summary>
+            The rotation speed value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject25D.rotation_accel">
+            <summary>
+            The rotation acceleration value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject25D.TUIO_ROTATING">
+            <summary>
+            Defines the ROTATING state.</summary>
+        </member>
+        <member name="M:TUIO.TuioObject25D.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes a TuioTime argument and assigns it along with the provided
+             Session ID, Symbol ID, X and Y coordinate and angle to the newly created TuioObject25D.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="si">the Session ID to assign</param>
+             <param name="sym">the Symbol ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject25D.#ctor(System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes the provided Session ID, Symbol ID, X and Y coordinate
+             and angle, and assigs these values to the newly created TuioObject25D.</summary>
+            
+             <param name="si">the Session ID to assign</param>
+             <param name="sym">the Symbol ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject25D.#ctor(TUIO.TuioObject25D)">
+             <summary>
+             This constructor takes the atttibutes of the provided TuioObject25D
+             and assigs these values to the newly created TuioObject25D.</summary>
+            
+             <param name="tobj">the TuioObject25D to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject25D.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate, angle, X and Y velocity, motion acceleration,
+             rotation speed and rotation acceleration to the private TuioObject25D attributes.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle coordinate to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="zs">the Z velocity to assign</param>
+             <param name="rs">the rotation velocity to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+             <param name="ra">the rotation acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject25D.update(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Assigns the provided X and Y coordinate, angle, X and Y velocity, motion acceleration
+             rotation velocity and rotation acceleration to the private TuioContainer attributes.
+             The TuioTime time stamp remains unchanged.</summary>
+            
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle coordinate to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="zs">the Z velocity to assign</param>
+             <param name="rs">the rotation velocity to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+             <param name="ra">the rotation acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject25D.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate and angle to the private TuioObject25D attributes.
+             The speed and accleration values are calculated accordingly.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle coordinate to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject25D.update(TUIO.TuioObject25D)">
+             <summary>
+             Takes the atttibutes of the provided TuioObject25D
+             and assigs these values to this TuioObject25D.
+             The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
+            
+             <param name="tobj">the TuioContainer to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject25D.stop(TUIO.TuioTime)">
+            <summary>
+            This method is used to calculate the speed and acceleration values of a
+            TuioObject25D with unchanged position and angle.</summary>
+        </member>
+        <member name="P:TUIO.TuioObject25D.SymbolID">
+            <summary>
+            Returns the symbol ID of this TuioObject25D.</summary>
+            <returns>the symbol ID of this TuioObject25D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject25D.Angle">
+            <summary>
+            Returns the rotation angle of this TuioObject25D.</summary>
+            <returns>the rotation angle of this TuioObject25D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject25D.AngleDegrees">
+            <summary>
+            Returns the rotation angle in degrees of this TuioObject25D.</summary>
+            <returns>the rotation angle in degrees of this TuioObject25D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject25D.RotationSpeed">
+            <summary>
+            Returns the rotation speed of this TuioObject25D.</summary>
+            <returns>the rotation speed of this TuioObject25D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject25D.RotationAccel">
+            <summary>
+            Returns the rotation acceleration of this TuioObject25D.</summary>
+            <returns>the rotation acceleration of this TuioObject25D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject25D.isMoving">
+            <summary>
+            Returns true of this TuioObject25D is moving.</summary>
+            <returns>true of this TuioObject25D is moving</returns>
+        </member>
+        <member name="T:TUIO.TuioObject3D">
+             <remarks>
+             The TuioObject class encapsulates /tuio/3Dobj TUIO objects.
+             </remarks>
+            
+             @author Nicolas Bremard
+             @version 1.1.7
+        </member>
+        <member name="F:TUIO.TuioObject3D.symbol_id">
+            <summary>
+            The individual symbol ID number that is assigned to each TuioObject.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject3D.roll">
+            <summary>
+            The roll angle value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject3D.roll_speed">
+            <summary>
+            The roll speed value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject3D.pitch">
+            <summary>
+            The pitch angle value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject3D.pitch_speed">
+            <summary>
+            The pitch speed value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject3D.yaw">
+            <summary>
+            The yaw angle value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject3D.yaw_speed">
+            <summary>
+            The yaw speed value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject3D.rotation_accel">
+            <summary>
+            The rotation acceleration value.</summary>
+        </member>
+        <member name="F:TUIO.TuioObject3D.TUIO_ROTATING">
+            <summary>
+            Defines the ROTATING state.</summary>
+        </member>
+        <member name="M:TUIO.TuioObject3D.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes a TuioTime argument and assigns it along with the provided
+             Session ID, Symbol ID, X and Y coordinate and angle to the newly created TuioObject3D.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="si">the Session ID to assign</param>
+             <param name="sym">the Symbol ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject3D.#ctor(System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             This constructor takes the provided Session ID, Symbol ID, X and Y coordinate
+             and angle, and assigs these values to the newly created TuioObject3D.</summary>
+            
+             <param name="si">the Session ID to assign</param>
+             <param name="sym">the Symbol ID to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject3D.#ctor(TUIO.TuioObject3D)">
+             <summary>
+             This constructor takes the atttibutes of the provided TuioObject3D
+             and assigs these values to the newly created TuioObject3D.</summary>
+            
+             <param name="tobj">the TuioObject3D to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject3D.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate, angle, X and Y velocity, motion acceleration,
+             rotation speed and rotation acceleration to the private TuioObject3D attributes.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="zs">the Z velocity to assign</param>
+             <param name="ros">the roll speed to assign</param>
+             <param name="pos">the pitch speed to assign</param>
+             <param name="yos">the yaw speed to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+             <param name="ra">the rotation acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject3D.update(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Assigns the provided X and Y coordinate, angle, X and Y velocity, motion acceleration
+             rotation velocity and rotation acceleration to the private TuioContainer attributes.
+             The TuioTime time stamp remains unchanged.</summary>
+            
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="ro">the roll to assign</param>
+             <param name="po">the pitch to assign</param>
+             <param name="yo">the yaw to assign</param>
+             <param name="xs">the X velocity to assign</param>
+             <param name="ys">the Y velocity to assign</param>
+             <param name="zs">the Z velocity to assign</param>
+             <param name="ros">the roll speed to assign</param>
+             <param name="pos">the pitch speed to assign</param>
+             <param name="yos">the yaw speed to assign</param>
+             <param name="ma">the motion acceleration to assign</param>
+             <param name="ra">the rotation acceleration to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject3D.update(TUIO.TuioTime,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+             <summary>
+             Takes a TuioTime argument and assigns it along with the provided
+             X and Y coordinate and angle to the private TuioObject3D attributes.
+             The speed and accleration values are calculated accordingly.</summary>
+            
+             <param name="ttime">the TuioTime to assign</param>
+             <param name="xp">the X coordinate to assign</param>
+             <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
+             <param name="a">the angle coordinate to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject3D.update(TUIO.TuioObject3D)">
+             <summary>
+             Takes the atttibutes of the provided TuioObject3D
+             and assigs these values to this TuioObject3D.
+             The TuioTime time stamp of this TuioContainer remains unchanged.</summary>
+            
+             <param name="tobj">the TuioContainer to assign</param>
+        </member>
+        <member name="M:TUIO.TuioObject3D.stop(TUIO.TuioTime)">
+            <summary>
+            This method is used to calculate the speed and acceleration values of a
+            TuioObject3D with unchanged position and angle.</summary>
+        </member>
+        <member name="P:TUIO.TuioObject3D.SymbolID">
+            <summary>
+            Returns the symbol ID of this TuioObject3D.</summary>
+            <returns>the symbol ID of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.Roll">
+            <summary>
+            Returns the rotation roll of this TuioObject3D.</summary>
+            <returns>the rotation roll of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.RollDegrees">
+            <summary>
+            Returns the rotation roll in degrees of this TuioObject3D.</summary>
+            <returns>the rotation roll in degrees of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.Pitch">
+            <summary>
+            Returns the rotation pitch of this TuioObject3D.</summary>
+            <returns>the rotation pitch of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.PitchDegrees">
+            <summary>
+            Returns the rotation pitch in degrees of this TuioObject3D.</summary>
+            <returns>the rotation pitch in degrees of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.Yaw">
+            <summary>
+            Returns the rotation yaw of this TuioObject3D.</summary>
+            <returns>the rotation yaw of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.YawDegrees">
+            <summary>
+            Returns the rotation yaw in degrees of this TuioObject3D.</summary>
+            <returns>the rotation yaw in degrees of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.RollSpeed">
+            <summary>
+            Returns the roll speed of this TuioObject3D.</summary>
+            <returns>the roll speed of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.PitchSpeed">
+            <summary>
+            Returns the pitch speed of this TuioObject3D.</summary>
+            <returns>the pitch speed of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.YawSpeed">
+            <summary>
+            Returns the yaw speed of this TuioObject3D.</summary>
+            <returns>the yaw speed of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.RotationAccel">
+            <summary>
+            Returns the rotation acceleration of this TuioObject3D.</summary>
+            <returns>the rotation acceleration of this TuioObject3D</returns>
+        </member>
+        <member name="P:TUIO.TuioObject3D.isMoving">
+            <summary>
+            Returns true of this TuioObject3D is moving.</summary>
+            <returns>true of this TuioObject3D is moving</returns>
+        </member>
         <member name="T:TUIO.TuioPoint">
              The TuioPoint class on the one hand is a simple container and utility class to handle TUIO positions in general,
              on the other hand the TuioPoint is the base class for the TuioCursor and TuioObject classes.
@@ -740,6 +1890,10 @@
             <summary>
             Y coordinate, representated as a floating point value in a range of 0..1</summary>
         </member>
+        <member name="F:TUIO.TuioPoint.zpos">
+            <summary>
+            Z coordinate, representated as a floating point value in a range of 0..1</summary>
+        </member>
         <member name="F:TUIO.TuioPoint.currentTime">
             <summary>
             The time stamp of the last update represented as TuioTime (time since session start)</summary>
@@ -753,13 +1907,14 @@
             The default constructor takes no arguments and sets
             its coordinate attributes to zero and its time stamp to the current session time.</summary>
         </member>
-        <member name="M:TUIO.TuioPoint.#ctor(System.Single,System.Single)">
+        <member name="M:TUIO.TuioPoint.#ctor(System.Single,System.Single,System.Single)">
              <summary>
              This constructor takes two floating point coordinate arguments and sets
              its coordinate attributes to these values and its time stamp to the current session time.</summary>
             
              <param name="xp">the X coordinate to assign</param>
              <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
         </member>
         <member name="M:TUIO.TuioPoint.#ctor(TUIO.TuioPoint)">
              <summary>
@@ -768,7 +1923,7 @@
             
              <param name="tpoint">the TuioPoint to assign</param>
         </member>
-        <member name="M:TUIO.TuioPoint.#ctor(TUIO.TuioTime,System.Single,System.Single)">
+        <member name="M:TUIO.TuioPoint.#ctor(TUIO.TuioTime,System.Single,System.Single,System.Single)">
              <summary>
              This constructor takes a TuioTime object and two floating point coordinate arguments and sets
              its coordinate attributes to these values and its time stamp to the provided TUIO time object.</summary>
@@ -776,6 +1931,7 @@
              <param name="ttime">the TuioTime to assign</param>
              <param name="xp">the X coordinate to assign</param>
              <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
         </member>
         <member name="M:TUIO.TuioPoint.update(TUIO.TuioPoint)">
              <summary>
@@ -784,15 +1940,16 @@
             
              <param name="tpoint">the TuioPoint to assign</param>
         </member>
-        <member name="M:TUIO.TuioPoint.update(System.Single,System.Single)">
+        <member name="M:TUIO.TuioPoint.update(System.Single,System.Single,System.Single)">
              <summary>
              Takes two floating point coordinate arguments and updates its coordinate attributes
              to the coordinates of the provided TuioPoint and leaves its time stamp unchanged.</summary>
             
              <param name="xp">the X coordinate to assign</param>
              <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
         </member>
-        <member name="M:TUIO.TuioPoint.update(TUIO.TuioTime,System.Single,System.Single)">
+        <member name="M:TUIO.TuioPoint.update(TUIO.TuioTime,System.Single,System.Single,System.Single)">
              <summary>
              Takes a TuioTime object and two floating point coordinate arguments and updates its coordinate attributes
              to the coordinates of the provided TuioPoint and its time stamp to the provided TUIO time object.</summary>
@@ -800,6 +1957,7 @@
              <param name="ttime">the TuioTime to assign</param>
              <param name="xp">the X coordinate to assign</param>
              <param name="yp">the Y coordinate to assign</param>
+             <param name="zp">the Z coordinate to assign</param>
         </member>
         <member name="P:TUIO.TuioPoint.X">
             <summary>
@@ -811,6 +1969,11 @@
             Returns the Y coordinate of this TuioPoint.</summary>
             <returns>the Y coordinate of this TuioPoint</returns>
         </member>
+        <member name="P:TUIO.TuioPoint.Z">
+            <summary>
+            Returns the Z coordinate of this TuioPoint.</summary>
+            <returns>the Z coordinate of this TuioPoint</returns>
+        </member>
         <member name="M:TUIO.TuioPoint.getDistance(System.Single,System.Single)">
              <summary>
              Returns the distance to the provided coordinates</summary>
@@ -819,12 +1982,30 @@
              <param name="yp">the Y coordinate of the distant point</param>
              <returns>the distance to the provided coordinates</returns>
         </member>
+        <member name="M:TUIO.TuioPoint.getDistance(System.Single,System.Single,System.Single)">
+             <summary>
+             Returns the distance to the provided coordinates</summary>
+            
+             <param name="xp">the X coordinate of the distant point</param>
+             <param name="yp">the Y coordinate of the distant point</param>
+             <param name="zp">the Z coordinate of the distant point</param>
+             <returns>the distance to the provided coordinates</returns>
+        </member>
         <member name="M:TUIO.TuioPoint.getDistance(TUIO.TuioPoint)">
              <summary>
              Returns the distance to the provided TuioPoint</summary>
             
              <param name="tpoint">the distant TuioPoint</param>
              <returns>the distance to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getSpaceDistance(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Returns the distance to the provided coordinates</summary>
+            
+             <param name="xp">the X coordinate of the distant point</param>
+             <param name="yp">the Y coordinate of the distant point</param>
+             <param name="zp">the Z coordinate of the distant point</param>
+             <returns>the distance to the provided coordinates</returns>
         </member>
         <member name="M:TUIO.TuioPoint.getAngle(System.Single,System.Single)">
              <summary>
@@ -856,6 +2037,96 @@
              <param name="tpoint">the distant TuioPoint</param>
              <returns>the angle in degrees to the provided TuioPoint</returns>
         </member>
+        <member name="M:TUIO.TuioPoint.getRollAngle(System.Single,System.Single,System.Single)">
+             <summary>
+             Returns the angle to the provided coordinates</summary>
+            
+             <param name="xp">the X coordinate of the distant point</param>
+             <param name="yp">the Y coordinate of the distant point</param>
+             <returns>the angle to the provided coordinates</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getRollAngle(TUIO.TuioPoint)">
+             <summary>
+             Returns the angle to the provided TuioPoint</summary>
+            
+             <param name="tpoint">the distant TuioPoint</param>
+             <returns>the angle to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getRollAngleDegrees(System.Single,System.Single,System.Single)">
+             <summary>
+             Returns the angle in degrees to the provided coordinates</summary>
+            
+             <param name="xp">the X coordinate of the distant point</param>
+             <param name="yp">the Y coordinate of the distant point</param>
+             <returns>the angle in degrees to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getRollAngleDegrees(TUIO.TuioPoint)">
+             <summary>
+             Returns the angle in degrees to the provided TuioPoint</summary>
+            
+             <param name="tpoint">the distant TuioPoint</param>
+             <returns>the angle in degrees to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getPitchAngle(System.Single,System.Single,System.Single)">
+             <summary>
+             Returns the angle to the provided coordinates</summary>
+            
+             <param name="xp">the X coordinate of the distant point</param>
+             <param name="yp">the Y coordinate of the distant point</param>
+             <returns>the angle to the provided coordinates</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getPitchAngle(TUIO.TuioPoint)">
+             <summary>
+             Returns the angle to the provided TuioPoint</summary>
+            
+             <param name="tpoint">the distant TuioPoint</param>
+             <returns>the angle to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getPitchAngleDegrees(System.Single,System.Single,System.Single)">
+             <summary>
+             Returns the angle in degrees to the provided coordinates</summary>
+            
+             <param name="xp">the X coordinate of the distant point</param>
+             <param name="yp">the Y coordinate of the distant point</param>
+             <returns>the angle in degrees to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getPitchAngleDegrees(TUIO.TuioPoint)">
+             <summary>
+             Returns the angle in degrees to the provided TuioPoint</summary>
+            
+             <param name="tpoint">the distant TuioPoint</param>
+             <returns>the angle in degrees to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getYawAngle(System.Single,System.Single,System.Single)">
+             <summary>
+             Returns the angle to the provided coordinates</summary>
+            
+             <param name="xp">the X coordinate of the distant point</param>
+             <param name="yp">the Y coordinate of the distant point</param>
+             <returns>the angle to the provided coordinates</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getYawAngle(TUIO.TuioPoint)">
+             <summary>
+             Returns the angle to the provided TuioPoint</summary>
+            
+             <param name="tpoint">the distant TuioPoint</param>
+             <returns>the angle to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getYawAngleDegrees(System.Single,System.Single,System.Single)">
+             <summary>
+             Returns the angle in degrees to the provided coordinates</summary>
+            
+             <param name="xp">the X coordinate of the distant point</param>
+             <param name="yp">the Y coordinate of the distant point</param>
+             <returns>the angle in degrees to the provided TuioPoint</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getYawAngleDegrees(TUIO.TuioPoint)">
+             <summary>
+             Returns the angle in degrees to the provided TuioPoint</summary>
+            
+             <param name="tpoint">the distant TuioPoint</param>
+             <returns>the angle in degrees to the provided TuioPoint</returns>
+        </member>
         <member name="M:TUIO.TuioPoint.getScreenX(System.Int32)">
              <summary>
              Returns the X coordinate in pixels relative to the provided screen width.</summary>
@@ -864,6 +2135,27 @@
              <returns>the X coordinate of this TuioPoint in pixels relative to the provided screen width</returns>
         </member>
         <member name="M:TUIO.TuioPoint.getScreenY(System.Int32)">
+             <summary>
+             Returns the Y coordinate in pixels relative to the provided screen height.</summary>
+            
+             <param name="height">the screen height</param>
+             <returns>the Y coordinate of this TuioPoint in pixels relative to the provided screen height</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getSpaceX(System.Int32)">
+             <summary>
+             Returns the Y coordinate in pixels relative to the provided screen height.</summary>
+            
+             <param name="height">the screen height</param>
+             <returns>the Y coordinate of this TuioPoint in pixels relative to the provided screen height</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getSpaceY(System.Int32)">
+             <summary>
+             Returns the Y coordinate in pixels relative to the provided screen height.</summary>
+            
+             <param name="height">the screen height</param>
+             <returns>the Y coordinate of this TuioPoint in pixels relative to the provided screen height</returns>
+        </member>
+        <member name="M:TUIO.TuioPoint.getSpaceZ(System.Int32)">
              <summary>
              Returns the Y coordinate in pixels relative to the provided screen height.</summary>
             
@@ -1053,6 +2345,10 @@
         <member name="F:TUIO.TuioBlob.TUIO_ROTATING">
             <summary>
             Defines the ROTATING state.</summary>
+        </member>
+        <member name="F:TUIO.TuioBlob.TUIO_RESIZED">
+            <summary>
+            Defines the RESIZED state.</summary>
         </member>
         <member name="M:TUIO.TuioBlob.#ctor(TUIO.TuioTime,System.Int64,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
              <summary>

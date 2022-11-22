@@ -81,7 +81,12 @@ namespace TUIO
          * <summary>
          * Defines the ROTATING state.</summary>
          */
-        public static readonly int TUIO_ROTATING = 5;
+        public static readonly int TUIO_ROTATING = 4;
+        /**
+         * <summary>
+         * Defines the RESIZED state.</summary>
+         */
+        public static readonly int TUIO_RESIZED = 7;
         #endregion
 
         #region Constructors
@@ -101,8 +106,8 @@ namespace TUIO
          * <param name="h">the height to assign</param>
          * <param name="f">the area to assign</param>
          */
-		public TuioBlob(TuioTime ttime, long si, int bi, float xp, float yp, float a, float w, float h, float f)
-            : base(ttime, si, xp, yp)
+        public TuioBlob(TuioTime ttime, long si, int bi, float xp, float yp, float a, float w, float h, float f)
+            : base(ttime, si, xp, yp, 0)
         {
             blob_id = bi;
             angle = a;
@@ -128,7 +133,7 @@ namespace TUIO
          * <param name="f">the area to assign</param>
          */
 		public TuioBlob(long si, int bi, float xp, float yp, float a, float w, float h, float f)
-            : base(si, xp, yp)
+            : base(si, xp, yp, 0)
         {
             blob_id = bi;
             angle = a;
@@ -182,14 +187,17 @@ namespace TUIO
          */
 		public void update(TuioTime ttime, float xp, float yp, float a, float w, float h, float f, float xs, float ys, float rs, float ma, float ra)
         {
-            base.update(ttime, xp, yp, xs, ys, ma);
+            base.update(ttime, xp, yp, 0, xs, ys, 0, ma);
             angle = a;
-			width = w;
+            float dw = width - w;
+            float dh = height - h;
+            width = w;
 			height = h;
 			area = f;
             rotation_speed = rs;
             rotation_accel = ra;
             if ((rotation_accel != 0) && (state != TUIO_STOPPED)) state = TUIO_ROTATING;
+            if (dw != 0 || dh != 0) state = TUIO_RESIZED;
         }
 
         /**
@@ -212,14 +220,17 @@ namespace TUIO
          */
 		public void update(float xp, float yp, float a, float w, float h, float f, float xs, float ys, float rs, float ma, float ra)
         {
-            base.update(xp, yp, xs, ys, ma);
+            base.update(xp, yp, 0, xs, ys, 0, ma);
             angle = a;
-			width = w;
+            float dw = width - w;
+            float dh = height - h;
+            width = w;
 			height = h;
 			area = f;
             rotation_speed = rs;
             rotation_accel = ra;
             if ((rotation_accel != 0) && (state != TUIO_STOPPED)) state = TUIO_ROTATING;
+            if (dw != 0 || dh != 0) state = TUIO_RESIZED;
         }
 
         /**
@@ -239,9 +250,11 @@ namespace TUIO
 		public void update(TuioTime ttime, float xp, float yp, float a,float w, float h, float f)
         {
 			TuioPoint lastPoint = path.Last.Value;
-            base.update(ttime, xp, yp);
+            base.update(ttime, xp, yp, 0);
 
-			width = w;
+            float dw = width - w;
+            float dh = height - h;
+            width = w;
 			height = h;
 			area = f;
 
@@ -254,10 +267,11 @@ namespace TUIO
             float da = (angle - last_angle) / (2.0f * (float)Math.PI);
             if (da > 0.75f) da -= 1.0f;
             else if (da < -0.75f) da += 1.0f;
-
+            angle = a;
             rotation_speed = da / dt;
             rotation_accel = (rotation_speed - last_rotation_speed) / dt;
             if ((rotation_accel != 0) && (state != TUIO_STOPPED)) state = TUIO_ROTATING;
+            if (dw != 0 || dh != 0) state = TUIO_RESIZED;
         }
 
         /**
@@ -277,7 +291,7 @@ namespace TUIO
 			area = tblb.Area;
             rotation_speed = tblb.RotationSpeed;
             rotation_accel = tblb.RotationAccel;
-            if ((rotation_accel != 0) && (state != TUIO_STOPPED)) state = TUIO_ROTATING;
+            state = tblb.state;
         }
 
         /**
@@ -287,7 +301,7 @@ namespace TUIO
          */
         public new void stop(TuioTime ttime)
         {
-			update(ttime, this.xpos, this.ypos, this.angle, this.width, this.height, this.area);
+			update(ttime, this.xpos, this.ypos,  this.angle, this.width, this.height, this.area);
         }
         #endregion
 

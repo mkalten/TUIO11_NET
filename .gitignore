@@ -8,6 +8,7 @@
 *.pdb
 bin/
 obj/
+.vs/
 Help/
 TestResults/
 *.userprefs
