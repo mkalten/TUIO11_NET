@@ -204,7 +204,7 @@ namespace TUIO
                 if (command == "set")
                 {
 
-                    long s_id = (long)args[1];
+                    long s_id = Convert.ToInt64(args[1]);
                     int f_id = (int)args[2];
                     float xpos = (float)args[3];
                     float ypos = (float)args[4];
@@ -244,7 +244,7 @@ namespace TUIO
                     for (int i = 1; i < args.Count; i++)
                     {
                         // get the message content
-                        long s_id = (long)args[i];
+                        long s_id = Convert.ToInt64(args[i]);
                         newObjectList.Add(s_id);
                         // reduce the object list to the lost objects
                         if (aliveObjectList.Contains(s_id))
@@ -256,7 +256,7 @@ namespace TUIO
                     {
                         for (int i = 0; i < aliveObjectList.Count; i++)
                         {
-                            long s_id = aliveObjectList[i];
+                            long s_id = Convert.ToInt64(aliveObjectList[i]);
                             TuioObject removeObject = objectList[s_id];
                             removeObject.remove(currentTime);
                             frameObjects.Add(removeObject);
@@ -352,8 +352,7 @@ namespace TUIO
 
                 if (command == "set")
                 {
-
-                    long s_id = (long)args[1];
+                    long s_id = Convert.ToInt64(args[1]);
                     float xpos = (float)args[2];
                     float ypos = (float)args[3];
                     float xspeed = (float)args[4];
@@ -390,7 +389,7 @@ namespace TUIO
                     for (int i = 1; i < args.Count; i++)
                     {
                         // get the message content
-                        long s_id = (long)args[i];
+                        long s_id = Convert.ToInt64(args[i]);
                         newCursorList.Add(s_id);
                         // reduce the cursor list to the lost cursors
                         if (aliveCursorList.Contains(s_id))
@@ -402,7 +401,7 @@ namespace TUIO
                     {
                         for (int i = 0; i < aliveCursorList.Count; i++)
                         {
-                            long s_id = aliveCursorList[i];
+                            long s_id = Convert.ToInt64(aliveCursorList[i]);
                             if (!cursorList.ContainsKey(s_id)) continue;
                             TuioCursor removeCursor = cursorList[s_id];
                             removeCursor.remove(currentTime);
@@ -544,8 +543,7 @@ namespace TUIO
 
 				if (command == "set")
 				{
-
-					long s_id = (long)args[1];
+					long s_id = Convert.ToInt64(args[1]);
 					float xpos = (float)args[2];
 					float ypos = (float)args[3];
 					float angle = (float)args[4];
@@ -586,7 +584,7 @@ namespace TUIO
 					for (int i = 1; i < args.Count; i++)
 					{
 						// get the message content
-						long s_id = (long)args[i];
+						long s_id = Convert.ToInt64(args[i]);
 						newBlobList.Add(s_id);
 						// reduce the blob list to the lost blobs
 						if (aliveBlobList.Contains(s_id))
@@ -598,7 +596,7 @@ namespace TUIO
 					{
 						for (int i = 0; i < aliveBlobList.Count; i++)
 						{
-							long s_id = aliveBlobList[i];
+							long s_id = Convert.ToInt64(aliveBlobList[i]);
 							if (!blobList.ContainsKey(s_id)) continue;
 							TuioBlob removeBlob = blobList[s_id];
 							removeBlob.remove(currentTime);
