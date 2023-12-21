@@ -204,7 +204,7 @@ namespace TUIO
                 if (command == "set")
                 {
 
-                    long s_id = (int)args[1];
+                    long s_id = (long)args[1];
                     int f_id = (int)args[2];
                     float xpos = (float)args[3];
                     float ypos = (float)args[4];
@@ -244,7 +244,7 @@ namespace TUIO
                     for (int i = 1; i < args.Count; i++)
                     {
                         // get the message content
-                        long s_id = (int)args[i];
+                        long s_id = (long)args[i];
                         newObjectList.Add(s_id);
                         // reduce the object list to the lost objects
                         if (aliveObjectList.Contains(s_id))
@@ -353,7 +353,7 @@ namespace TUIO
                 if (command == "set")
                 {
 
-                    long s_id = (int)args[1];
+                    long s_id = (long)args[1];
                     float xpos = (float)args[2];
                     float ypos = (float)args[3];
                     float xspeed = (float)args[4];
@@ -390,7 +390,7 @@ namespace TUIO
                     for (int i = 1; i < args.Count; i++)
                     {
                         // get the message content
-                        long s_id = (int)args[i];
+                        long s_id = (long)args[i];
                         newCursorList.Add(s_id);
                         // reduce the cursor list to the lost cursors
                         if (aliveCursorList.Contains(s_id))
@@ -545,7 +545,7 @@ namespace TUIO
 				if (command == "set")
 				{
 
-					long s_id = (int)args[1];
+					long s_id = (long)args[1];
 					float xpos = (float)args[2];
 					float ypos = (float)args[3];
 					float angle = (float)args[4];
@@ -586,7 +586,7 @@ namespace TUIO
 					for (int i = 1; i < args.Count; i++)
 					{
 						// get the message content
-						long s_id = (int)args[i];
+						long s_id = (long)args[i];
 						newBlobList.Add(s_id);
 						// reduce the blob list to the lost blobs
 						if (aliveBlobList.Contains(s_id))
